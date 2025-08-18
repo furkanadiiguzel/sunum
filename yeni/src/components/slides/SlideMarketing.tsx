@@ -16,11 +16,11 @@ export const SlideMarketing = memo(function SlideMarketing({ data }: Props) {
       <div className="grid grid-cols-1 gap-3">
         <LineTwoSeries
           data={data.funnel}
-          caption="Monthly funnel: visits → inquiries → bookings → add-ons"
-          labels={{ a: 'Visits/Inquiries', b: 'Bookings/Add-ons' }}
+          caption="Gyp mujor: vizita → kërkesa → rezervime → shtesa"
+          labels={{ a: 'Vizita/Kërkesa', b: 'Rezervime/Shtesa' }}
           height={140}
         />
-        <BarsComparison data={data.bookingsByCampaign} caption="Bookings gained by campaign (MoM)" />
+        <BarsComparison data={data.bookingsByCampaign} caption="Rezervime të fituara nga fushatat (muaj pas muaji)" />
       </div>
     </ChartContainer>
   )

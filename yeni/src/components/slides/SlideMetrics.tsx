@@ -12,16 +12,16 @@ type Props = {
 
 export function SlideMetrics({ data }: Props) {
   const barData = [
-    { category: 'Response', Before: data.kpis[0].before, After: data.kpis[0].after },
-    { category: 'Readiness', Before: data.kpis[1].before, After: data.kpis[1].after },
-    { category: 'Resolution', Before: data.kpis[2].before, After: data.kpis[2].after },
-    { category: 'Revenue', Before: data.kpis[3].before, After: data.kpis[3].after },
+    { category: 'Përgjigje', Before: data.kpis[0].before, After: data.kpis[0].after },
+    { category: 'Gatishmëri', Before: data.kpis[1].before, After: data.kpis[1].after },
+    { category: 'Zgjidhje', Before: data.kpis[2].before, After: data.kpis[2].after },
+    { category: 'Të ardhura', Before: data.kpis[3].before, After: data.kpis[3].after },
   ]
   return (
     <div className="grid grid-cols-1 gap-3">
-      <BarsComparison data={barData} caption="Clear improvements across key service KPIs" />
-      <DonutProgress value={data.donut.onTime} remainder={data.donut.late} caption="On-time readiness" />
-      <Sparkline values={data.satisfaction7d} caption="Satisfaction trend (7 days)" yDomain={[0, 100]} />
+      <BarsComparison data={barData} caption="Përmirësime të qarta në KPI-t kryesore të shërbimit" />
+      <DonutProgress value={data.donut.onTime} remainder={data.donut.late} caption="Gatishmëri në kohë" />
+      <Sparkline values={data.satisfaction7d} caption="Tendenca e kënaqësisë (7 ditë)" yDomain={[0, 100]} />
     </div>
   )
 }

@@ -7,8 +7,8 @@ type Props = { data: Datum[]; caption?: string; yDomain?: [number, number]; unit
 
 export const LineSimple = memo(function LineSimple({ data, caption, yDomain, unit, height }: Props) {
   return (
-    <figure aria-label="Line chart" className="card-surface p-4">
-      <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Trend over time'}</figcaption>
+    <figure aria-label="Grafik vijor" className="card-surface p-4">
+      <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Tendencë me kalimin e kohës'}</figcaption>
       <div className="w-full" style={{ height: height ?? 160 }}>
         <ResponsiveContainer>
           <LineChart data={data} margin={{ top: 10, right: 8, left: 8, bottom: 0 }}>

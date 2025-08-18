@@ -12,19 +12,19 @@ type Props = {
 
 export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data }: Props) {
   const barData = [
-    { category: 'Reception processing (min)', Before: data.receptionProcessing.before, After: data.receptionProcessing.after },
+    { category: 'Përpunimi në recepsion (min)', Before: data.receptionProcessing.before, After: data.receptionProcessing.after },
   ]
   return (
     <ChartContainer>
       <div className="grid grid-cols-1 gap-3">
         <LineSimple
           data={data.roomReadyMinutesWeekly}
-          caption="Average room-ready time (minutes) per week"
+          caption="Koha mesatare për gatishmërinë e dhomës (minuta) në javë"
           yDomain={[0, 'auto'] as any}
           unit=" min"
           height={130}
         />
-        <BarsComparison data={barData} caption="Reception processing per arrival (before vs after)" />
+        <BarsComparison data={barData} caption="Përpunimi i recepsionit për ardhje (para vs pas)" />
       </div>
     </ChartContainer>
   )

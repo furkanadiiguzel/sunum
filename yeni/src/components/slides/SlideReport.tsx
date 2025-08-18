@@ -16,12 +16,12 @@ export const SlideReport = memo(function SlideReport({ data }: Props) {
   return (
     <ChartContainer>
       <div className="grid grid-cols-1 gap-3">
-        <HeatmapGrid values={data.advanceDaysHeatmap} caption="How many days in advance guests book" />
-        <BarSimple data={data.shareByRegion} caption="Share of nights by country/region" height={110} />
+        <HeatmapGrid values={data.advanceDaysHeatmap} caption="Sa ditë përpara rezervojnë mysafirët" />
+        <BarSimple data={data.shareByRegion} caption="Pjesa e netëve sipas vendit/rajonit" height={110} />
         <LineTwoSeries
           data={data.occupancyVsCancels}
-          caption="Occupancy & cancellations by month"
-          labels={{ a: 'Occupancy %', b: 'Cancellations %' }}
+          caption="Shfrytëzimi & anulimet sipas muajit"
+          labels={{ a: 'Shfrytëzim %', b: 'Anulime %' }}
           yDomain={[0, 100]}
           unit=" %"
           height={130}

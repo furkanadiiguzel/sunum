@@ -6,13 +6,13 @@ type Props = { value: number; remainder: number; caption?: string }
 
 export const DonutProgress = memo(function DonutProgress({ value, remainder, caption }: Props) {
   const data = [
-    { name: 'On Time', value },
-    { name: 'Late', value: remainder },
+    { name: 'Në kohë', value },
+    { name: 'Me vonesë', value: remainder },
   ]
   return (
-    <figure aria-label="On-Time Readiness" className="card-surface p-3 flex flex-col items-center justify-center">
-      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'On-time room readiness'}</figcaption>
-      <div className="w-full" style={{ height: 150 }}>
+    <figure aria-label="Gatishmëri në kohë" className="card-surface p-3 flex flex-col items-center justify-center">
+      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'Gatishmëria e dhomës në kohë'}</figcaption>
+      <div className="w-full" style={{ height: 130 }}>
         <ResponsiveContainer>
           <PieChart>
             <Pie data={data} innerRadius={45} outerRadius={70} paddingAngle={2} dataKey="value">
@@ -25,7 +25,7 @@ export const DonutProgress = memo(function DonutProgress({ value, remainder, cap
       </div>
       <div className="-mt-16 text-center">
         <div className="text-2xl font-semibold">{value}%</div>
-        <div className="text-[11px] text-porcelain/70">On Time</div>
+        <div className="text-[11px] text-porcelain/70">Në kohë</div>
       </div>
     </figure>
   )

@@ -26,11 +26,11 @@ const srcset = (url: string) => ({
 export const slides: Slide[] = [
   {
     id: 'cover',
-    title: 'IgnitOS — AI-Powered Business Solutions',
+    title: 'IgnitOS — Zgjidhje të Fuqizuara nga AI për Biznese',
     lead:
-      'IgnitOS is the operating layer that simplifies how modern businesses run. From the first touch to the final follow-up, it brings every critical step into one coherent flow—so teams spend less time chasing work and more time creating value. Powered by human-like AI that understands context and communicates naturally, IgnitOS turns routine tasks into effortless, consistent execution.',
+      'IgnitOS është shtresa operative që e thjeshton mënyrën si funksionojnë bizneset moderne. Nga kontakti i parë te ndjekja e fundit, bashkon çdo hap kritik në një rrjedhë koherente—që ekipet të kalojnë më pak kohë duke ndjekur punët dhe më shumë duke krijuar vlerë. Me AI me sjellje njerëzore që kupton kontekstin dhe komunikon natyrshëm, IgnitOS i kthen detyrat rutinë në ekzekutim të lehtë dhe të qëndrueshëm.',
     body:
-      'This presentation shows how a single, well-orchestrated system raises service consistency, accelerates operations, and turns every interaction—sales, support, or delivery—into an opportunity to impress.',
+      'Kjo prezantim tregon si një sistem i vetëm, i orkestruar mirë, rrit qëndrueshmërinë e shërbimit, përshpejton operacionet dhe e kthen çdo ndërveprim—shitje, mbështetje ose shpërndarje—në një mundësi për të lënë përshtypje.',
     visual: {
       type: 'image',
       ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
@@ -39,9 +39,9 @@ export const slides: Slide[] = [
   },
   {
     id: 'intro',
-    title: 'Introduction — What This Really Is (and Why It Helps)',
+    title: 'Çfarë Është Realisht Kjo',
     body:
-      "This is not a cold, rigid automation. It’s a human-like AI concierge that talks to guests in everyday language, understands tone (urgent vs. casual), and adapts to each situation. It communicates naturally in Albanian, English, Turkish, and Serbian, and when the moment calls for empathy or discretion, it escalates to your team with a tidy summary and recommended next steps. In practice, you’ll see: faster replies, smoother arrivals, clearer housekeeping plans, quicker review responses, and a monthly rhythm of reports and simple, month-by-month marketing actions.",
+      "Kjo nuk është një automatizim i ftohtë e i ngurtë. Është një konsulente AI me sjellje njerëzore që flet me mysafirët në gjuhë të përditshme, kupton tonin (urgjent vs. i qetë) dhe përshtatet me çdo situatë. Mund të komunikojë natyrshëm në shqip, anglisht, turqisht dhe çdo gjuhë tjetër që dëshironi. Kur kërkohet empati ose diskrecion, ia kalon çështjen ekipit tuaj me një përmbledhje të rregullt dhe hapa të rekomanduar. Në praktikë, do të shihni: përgjigje më të shpejta, mbërritje më të rrjedhshme, plane më të qarta pastrimi, përgjigje më të shpejta ndaj vlerësimeve dhe një ritëm mujor raportesh me veprime të thjeshta, muaj pas muaji.",
     visual: {
       type: 'image',
       ...srcset('https://images.unsplash.com/photo-1521737604893-d14cc237f11d'),
@@ -50,16 +50,16 @@ export const slides: Slide[] = [
   },
   {
     id: 'reservations',
-    title: '1) Reservations & Guest Messaging',
+    title: '1) Rezervime & Mesazhet me Mysafirët',
     body:
-      'Human-like replies that feel personal—late-night questions get warm, instant answers, and tricky cases reach your staff with full context.',
+      'Përgjigje me tone njerëzore që duken personale—pyetjet e vonshme marrin përgjigje të ngrohta, të menjëhershme, dhe rastet e ndërlikuara i kalohen stafit tuaj me gjithë kontekstin.',
     bullets: [
-      'Instantly answers common questions from your website, WhatsApp, Instagram, or email (parking, breakfast hours, late check-in).',
-      'Sends friendly booking confirmations and pre-arrival information.',
-      'Handles multiple languages clearly; passes special or sensitive cases to a person.',
-      'Guests get quick, reassuring responses—even after hours.',
-      'More direct (commission-free) bookings over time.',
-      'Fewer interruptions for your front desk.',
+      'U përgjigjet menjëherë pyetjeve të shpeshta nga faqja juaj, WhatsApp, Instagram ose email (parkimi, oraret e mëngjesit, check-in i vonë).',
+      'Dërgon konfirmime miqësore dhe informacione para mbërritjes.',
+      'Menaxhon shumë gjuhë qartë; rastet e veçanta/sensitive ia kalon një personi.',
+      'Mysafirët marrin përgjigje të shpejta e qetësuese—edhe pas orarit.',
+      'Më shumë rezervime direkte (pa komision) me kalimin e kohës.',
+      'Më pak ndërprerje për recepsionin.',
     ],
     visual: {
       type: 'image',
@@ -74,16 +74,16 @@ export const slides: Slide[] = [
   },
   {
     id: 'operations-kpi',
-    title: '2) Check-In / Check-Out & Housekeeping Flow',
+    title: '2) Check-In / Check-Out & Rrjedha e Housekeeping',
     body:
-      'Guests receive polite, clear guidance; staff see short, human-readable tasks instead of cryptic codes.',
+      'Mysafirët marrin udhëzime të qarta e të sjellshme; stafi sheh detyra të shkurtra e të kuptueshme, jo kode të paqarta.',
     bullets: [
-      'Sends a short pre-arrival form for ID details and preferences to speed up arrival.',
-      'When a room checks out, creates a cleaning task automatically and updates status to “Ready” when done.',
-      'If a guest reports a problem, opens the right task (maintenance/housekeeping) and tracks it to closure.',
-      'Shorter queues at reception; rooms ready on time.',
-      'A clear daily plan for housekeeping and fewer “who goes where?” moments.',
-      'Less back-and-forth between teams.',
+      'Dërgon një formular të shkurtër para mbërritjes për të dhënat e identifikimit dhe preferencat, për të përshpejtuar mbërritjen.',
+      'Kur një dhomë bën check-out, krijon automatikisht detyrë pastrimi dhe e përditëson statusin në “Gati” sapo përfundohet.',
+      'Nëse një mysafir raporton problem, hap detyrën e duhur (mirëmbajtje/pastrime) dhe e ndjek deri në mbyllje.',
+      'Radhë më të shkurtra në recepsion; dhomat gati në kohë.',
+      'Plan ditor i qartë për housekeeping dhe më pak momente “kush shkon ku?”.',
+      'Më pak kthim‑përgjigje mes ekipeve.',
     ],
     visual: {
       type: 'image',
@@ -102,14 +102,14 @@ export const slides: Slide[] = [
   },
   {
     id: 'upsell',
-    title: '3) Guest Experience & Gentle Upselling',
+    title: '3) Përvoja e Mysafirëve & Upsell i Butë',
     body:
-      'Suggests add-ons the way a person would—relevant, polite, never pushy; if guests say “not today,” it backs off gracefully.',
+      'Sugjeron shtesa ashtu si do të bënte një person—relevante, të sjellshme, kurrë me presion; nëse mysafiri thotë “jo sot”, tërhiqet me elegancë.',
     bullets: [
-      'Before arrival: simple, fixed-price add-ons like upgrade, late check-out, transfer, breakfast.',
-      'During stay: well-timed, friendly reminders (e.g., spa late-afternoon special).',
-      'Guests feel informed and in control; one tap to accept.',
-      'Front desk spends less time explaining options.',
+      'Para mbërritjes: shtesa të thjeshta me çmim fiks si përmirësim dhome, dalje e vonshme, transfer aeroporti, mëngjes.',
+      'Gjatë qëndrimit: kujtesa miqësore në kohën e duhur (p.sh., ofertë e pasdites për spa).',
+      'Mysafirët ndihen të informuar dhe në kontroll; pranim me një prekje.',
+      'Recepsioni kalon më pak kohë duke shpjeguar opsionet.',
     ],
     visual: {
       type: 'image',
@@ -118,31 +118,31 @@ export const slides: Slide[] = [
     },
     charts: {
       topAddons: [
-        { name: 'Late check-out', value: 32 },
-        { name: 'Airport transfer', value: 28 },
-        { name: 'Breakfast', value: 24 },
-        { name: 'Upgrade', value: 16 },
+        { name: 'Dalje e vonshme (late check-out)', value: 32 },
+        { name: 'Transfer aeroporti', value: 28 },
+        { name: 'Mëngjes', value: 24 },
+        { name: 'Përmirësim dhome (upgrade)', value: 16 },
       ],
       revPerRoomByMonth: [
-        { label: 'Jan', value: 4.2 },
-        { label: 'Feb', value: 5.1 },
-        { label: 'Mar', value: 6.0 },
-        { label: 'Apr', value: 6.8 },
+        { label: 'Janar', value: 4.2 },
+        { label: 'Shkurt', value: 5.1 },
+        { label: 'Mars', value: 6.0 },
+        { label: 'Prill', value: 6.8 },
       ],
     },
   },
   {
     id: 'reputation',
-    title: '4) Reputation & Review Management',
+    title: '4) Reputacioni & Menaxhimi i Vlerësimeve',
     body:
-      'Drafts sincere, empathetic replies that sound like you; flags sensitive cases for a human to finalize.',
+      'Përgatit përgjigje të sinqerta e empatike që tingëllojnë si ju; sinjalizon rastet sensitive që t’i finalizojë një njeri.',
     bullets: [
-      'Collects new reviews daily from Google and booking sites.',
-      'Highlights negatives fast and prepares a polite draft response for your approval.',
-      'If a review mentions a fixable issue, opens a task, tracks the fix, and closes the loop.',
-      'Guests see timely, caring responses—scores tend to rise over time.',
-      'Repeated issues become visible and get solved for good.',
-      'Your team learns what guests value most.',
+      'Mbledh vlerësime të reja çdo ditë nga Google dhe faqet e rezervimeve.',
+      'Nxjerr shpejt në pah anët negative dhe përgatit një përgjigje të sjellshme për miratimin tuaj.',
+      'Nëse një vlerësim përmend një problem të rregullueshëm, hap një detyrë, ndjek rregullimin dhe mbyll ciklin.',
+      'Mysafirët shohin përgjigje të kujdesshme dhe në kohë—vlerësimet priren të rriten me kohën.',
+      'Çështjet e përsëritura bëhen të dukshme dhe zgjidhen përfundimisht.',
+      'Ekipi juaj mëson çfarë vlerësojnë më shumë mysafirët.',
     ],
     visual: {
       type: 'image',
@@ -162,13 +162,13 @@ export const slides: Slide[] = [
   },
   {
     id: 'report',
-    title: '5) Monthly Reservation Report (Clear, Executive-Friendly)',
+    title: '5) Raporti Mujor i Rezervimeve (i Qartë, i Dobishëm për Drejtuesit)',
     body:
-      'Explains the “why,” not just the numbers—plain-English insights your whole team can act on next month.',
+      'Shpjegon “pse”-në, jo vetëm shifrat—përfundime të qarta që i gjithë ekipi mund t’i zbatojë muajin e ardhshëm.',
     bullets: [
-      'At the start of each month: where guests came from, soft days, top channels, average stay, cancellations, add-on results.',
-      'Two files: Owner’s one-pager + deeper workbook for anyone who wants to dive in.',
-      'Simple answers to “What actually worked?” and better staffing/pricing decisions.',
+      'Në fillim të çdo muaji: nga erdhën mysafirët, ditët e dobëta, kanalet kryesore, qëndrimi mesatar, anulimet dhe rezultatet e shtesave.',
+      'Dy skedarë: një faqe për pronarin + një material i thelluar për këdo që dëshiron të zhytet në detaje.',
+      'Përgjigje të thjeshta për “Çfarë funksionoi realisht?” dhe vendime më të mira për stafimin/çmimet.',
     ],
     visual: {
       type: 'image',
@@ -190,23 +190,23 @@ export const slides: Slide[] = [
         { label: 'EU', value: 25 },
       ],
       occupancyVsCancels: [
-        { label: 'Jan', a: 52, b: 12 },
-        { label: 'Feb', a: 57, b: 10 },
-        { label: 'Mar', a: 63, b: 9 },
-        { label: 'Apr', a: 68, b: 8 },
+        { label: 'Janar', a: 52, b: 12 },
+        { label: 'Shkurt', a: 57, b: 10 },
+        { label: 'Mars', a: 63, b: 9 },
+        { label: 'Prill', a: 68, b: 8 },
       ],
     },
   },
   {
     id: 'marketing',
-    title: '6) Month-by-Month Marketing Plan & Campaign Rotation',
+    title: '6) Plan Mujor Marketingu & Rotacion Fushatash',
     body:
-      'Turns data into a one-page, human-readable action list—clear priorities, simple messages in each language.',
+      'E kthen të dhënat në një listë veprimesh në një faqe—prioritete të qarta, mesazhe të thjeshta në çdo gjuhë.',
     bullets: [
-      'Convert the monthly report into a short plan for the coming month.',
-      'Small direct-booking perk on your website (e.g., free transfer or breakfast discount).',
-      'Simple campaigns to fill weaker days first; friendly messages to past guests in their language.',
-      'Seasonal updates to photos and text (winter city breaks, summer nature escapes).',
+      'Ktheni raportin mujor në një plan të shkurtër për muajin në vijim.',
+      'Një përfitim i vogël për rezervimet direkte në faqen tuaj (p.sh., transfer falas ose zbritje në mëngjes).',
+      'Fushata të thjeshta për të mbushur fillimisht ditët më të dobëta; mesazhe miqësore për ish‑mysafirët në gjuhën e tyre.',
+      'Përditësime sezonale të fotove dhe teksteve (pushime dimërore në qytet, arratisje verore në natyrë).',
     ],
     visual: {
       type: 'image',
@@ -215,23 +215,23 @@ export const slides: Slide[] = [
     },
     charts: {
       funnel: [
-        { label: 'Jan', a: 1800, b: 140 },
-        { label: 'Feb', a: 1900, b: 160 },
-        { label: 'Mar', a: 2100, b: 190 },
-        { label: 'Apr', a: 2300, b: 220 },
+        { label: 'Janar', a: 1800, b: 140 },
+        { label: 'Shkurt', a: 1900, b: 160 },
+        { label: 'Mars', a: 2100, b: 190 },
+        { label: 'Prill', a: 2300, b: 220 },
       ],
       bookingsByCampaign: [
-        { category: 'Website perk', Before: 18, After: 31 },
-        { category: 'Weak-day fill', Before: 12, After: 22 },
-        { category: 'Past guests', Before: 9, After: 17 },
+        { category: 'Përfitim në faqe', Before: 18, After: 31 },
+        { category: 'Mbushje ditësh të dobëta', Before: 12, After: 22 },
+        { category: 'Mysafirë të mëparshëm', Before: 9, After: 17 },
       ],
     },
   },
   {
     id: 'voice',
-    title: '“How It Speaks” — Small Voice Sample',
+    title: '“Si Flet” — Shembull i Shkurtër Bisedimi',
     body:
-      'Guest: “Landing at 23:30—can I still check in?”\nAI: “Absolutely. Reception is open, and if you prefer, I can send quick door instructions now. Safe travels!”\n\nGuest: “It’s our anniversary.”\nAI: “Congratulations! Would you like a small surprise in the room? I can arrange a mini dessert plate or flowers.”',
+      'Mysafir: “Vijmë në 23:30—a mund të bëjmë ende check-in?”\nAI: “Patjetër. Recepsioni është i hapur; nëse doni, mund t’ju dërgoj tani udhëzimet për derën. Udhëtim të mbarë!”\n\nMysafir: “Është përvjetori ynë.”\nAI: “Urime! Dëshironi një surprizë të vogël në dhomë? Mund të organizoj një pjatë me ëmbëlsira ose lule.”',
     visual: {
       type: 'image',
       ...srcset('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2'),
@@ -240,16 +240,16 @@ export const slides: Slide[] = [
   },
   {
     id: 'closing',
-    title: 'Conclusion — What to Expect in the First 90 Days',
+    title: 'Çfarë të Prisni në 90 Ditët e Para',
     bullets: [
-      'Faster replies to guest messages → happier guests, more direct bookings.',
-      'Smoother arrivals and departures → calmer reception, rooms ready on time.',
-      'Steady extra revenue from simple add-ons guests like.',
-      'Visible, timely review replies → stronger online reputation.',
-      'A monthly rhythm of report → action plan → better results next month.',
+      'Përgjigje më të shpejta ndaj mesazheve → mysafirë më të kënaqur, më shumë rezervime direkte.',
+      'Mbërritje dhe largime më të rrjedhshme → recepsion më i qetë, dhomat gati me kohë.',
+      'Të ardhura shtesë të qëndrueshme nga shtesat e thjeshta që pëlqejnë mysafirët.',
+      'Përgjigje të dukshme dhe në kohë ndaj vlerësimeve → reputacion online më i fortë.',
+      'Ritëm mujor: raport → plan veprimi → rezultate më të mira muajin tjetër.',
     ],
     body:
-      'All of this powered by a human-like AI concierge that communicates naturally, understands context, and knows when to involve a real person.',
+      'E gjitha kjo mundësohet nga një konsulente AI me sjellje njerëzore që komunikon natyrshëm, kupton kontekstin dhe di kur të përfshijë një person real.',
     visual: {
       type: 'image',
       ...srcset('https://images.unsplash.com/photo-1519125323398-675f0ddb6308'),
@@ -258,13 +258,13 @@ export const slides: Slide[] = [
   },
   {
     id: 'pricing',
-    title: 'Pricing & Packages',
+    title: 'Çmime & Paketa',
     body:
-      'Every property is different. For a clear, line-item proposal (individual services vs. bundles), timelines, and 90-day targets, contact us at [Your Email] or WhatsApp: [Your Number].',
+      'Çdo pronë është ndryshe. Për një ofertë të qartë me zëra (shërbime individuale vs. paketa), afate dhe objektiva 90-ditore, na kontaktoni në arda.mtg@gmail.com ose WhatsApp: +905514268881.',
     bullets: [
-      'Modular (à la carte): choose any service on its own (each has a clear scope and SLA).',
-      'Bundled packages: discounted bundles that combine multiple services for better value.',
-      'Each service is available individually or in discounted bundles. For details and pricing, contact us at [Your Email] / WhatsApp: [Your Number].',
+      'Modulare (à la carte): zgjidhni çdo shërbim veçmas (secili me fushë dhe SLA të qartë).',
+      'Paketa të bashkuara: zbritje për kombinime shërbimesh për vlerë më të mirë.',
+      'Çdo shërbim ofrohet veçmas ose në paketa me zbritje. Për detaje dhe çmime, na shkruani në arda.mtg@gmail.com ose WhatsApp: +905514268881.',
     ],
     visual: {
       type: 'image',

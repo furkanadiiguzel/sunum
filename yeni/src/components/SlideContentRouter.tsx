@@ -8,6 +8,9 @@ import { SlideUpsell } from './slides/SlideUpsell'
 import { SlideReputation } from './slides/SlideReputation'
 import { SlideReport } from './slides/SlideReport'
 import { SlideMarketing } from './slides/SlideMarketing'
+import { PhoneConversation } from './illustrations/PhoneConversation'
+import { SlideClosingCards } from './slides/SlideClosingCards'
+import { SlidePricing } from './slides/SlidePricing'
 import type { Slide } from '../content/slides'
 
 type Props = { slide: Slide }
@@ -111,6 +114,60 @@ export function SlideContentRouter({ slide }: Props) {
               { category: 'Website perk', Before: 18, After: 31 },
               { category: 'Weak-day fill', Before: 12, After: 22 },
               { category: 'Past guests', Before: 9, After: 17 },
+            ],
+          }
+        }
+      />
+    )
+  if (slide.id === 'voice') return <PhoneConversation />
+  if (slide.id === 'closing')
+    return (
+      <SlideClosingCards
+        items={[
+          'Përgjigje më të shpejta ndaj mesazheve → mysafirë më të kënaqur, më shumë rezervime direkte.',
+          'Mbërritje dhe largime më të rrjedhshme → recepsion më i qetë, dhomat gati me kohë.',
+          'Të ardhura shtesë të qëndrueshme nga shtesat e thjeshta që pëlqejnë mysafirët.',
+          'Përgjigje të dukshme dhe në kohë ndaj vlerësimeve → reputacion online më i fortë.',
+          'Ritëm mujor: raport → plan veprimi → rezultate më të mira muajin tjetër.',
+        ]}
+      />
+    )
+  if (slide.id === 'pricing')
+    return (
+      <SlidePricing
+        data={
+          (slide.charts as any) || {
+            plans: [
+              {
+                name: 'Starter (Modular À la carte)',
+                price: 'Për shërbim',
+                features: [
+                  'Zgjidhni çdo aftësi të vetme (fushë & SLA e qartë)',
+                  'E shkëlqyer për të provuar IgnitOS në një fushë',
+                  'Pa angazhim afatgjatë',
+                ],
+                cta: 'Kërko ofertë',
+              },
+              {
+                name: 'Growth (Paketë)',
+                price: 'Kurseni 15% (paketë)',
+                features: [
+                  'Rezervime + Housekeeping + Vlerësime',
+                  'Automatizim & raporte ndër-funksionale',
+                  'Mbështetje prioritare',
+                ],
+                cta: 'Kërko ofertë',
+              },
+              {
+                name: 'Pro (Paketa e Plotë)',
+                price: 'Kurseni 25% (paketë)',
+                features: [
+                  'Të gjitha aftësitë + rotacion plani marketingu',
+                  'Takime të dedikuara suksesi',
+                  'KPI & trajnime të përshtatura',
+                ],
+                cta: 'Kërko ofertë',
+              },
             ],
           }
         }

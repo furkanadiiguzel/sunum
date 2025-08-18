@@ -7,8 +7,8 @@ type Props = { data: Datum[]; caption?: string; unit?: string; height?: number }
 
 export const BarSimple = memo(function BarSimple({ data, caption, unit, height }: Props) {
   return (
-    <figure aria-label="Bar chart" className="card-surface p-4">
-      <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Values by period'}</figcaption>
+    <figure aria-label="Grafik me shtylla" className="card-surface p-4">
+      <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Vlera sipas periudhës'}</figcaption>
       <ResponsiveContainer width="100%" height={height ?? 180}>
         <BarChart data={data} margin={{ top: 4, right: 8, left: 8, bottom: 0 }}>
           <CartesianGrid stroke={ChartTheme.colors.grid} vertical={false} />

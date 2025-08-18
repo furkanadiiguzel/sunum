@@ -6,11 +6,11 @@ type Datum = { label: string; a: number; b: number }
 type Props = { data: Datum[]; caption?: string; labels?: { a: string; b: string }; yDomain?: [number, number]; unit?: string; height?: number }
 
 export const LineTwoSeries = memo(function LineTwoSeries({ data, caption, labels, yDomain, unit, height }: Props) {
-  const labelA = labels?.a ?? 'Series A'
-  const labelB = labels?.b ?? 'Series B'
+  const labelA = labels?.a ?? 'Seria A'
+  const labelB = labels?.b ?? 'Seria B'
   return (
-    <figure aria-label="Two-series trend" className="card-surface p-4">
-      <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Trends over time'}</figcaption>
+    <figure aria-label="Tendencë me dy seri" className="card-surface p-4">
+      <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Tendenca me kalimin e kohës'}</figcaption>
       <div className="w-full" style={{ height: height ?? 160 }}>
         <ResponsiveContainer>
           <LineChart data={data} margin={{ top: 10, right: 8, left: 8, bottom: 0 }}>

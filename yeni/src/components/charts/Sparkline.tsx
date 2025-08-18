@@ -7,9 +7,9 @@ type Props = { values: number[]; caption?: string; yDomain?: [number, number] }
 export const Sparkline = memo(function Sparkline({ values, caption, yDomain }: Props) {
   const data = values.map((v, i) => ({ x: i + 1, y: v }))
   return (
-    <figure aria-label="Satisfaction 7-day trend" className="card-surface p-3">
-      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'Guest satisfaction trending up over the last week'}</figcaption>
-      <div className="w-full" style={{ height: 120 }}>
+    <figure aria-label="Tendenca 7-ditore e kënaqësisë" className="card-surface p-3">
+      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'Kënaqësia e mysafirëve është në rritje gjatë javës së fundit'}</figcaption>
+      <div className="w-full" style={{ height: 110 }}>
         <ResponsiveContainer>
           <AreaChart data={data} margin={{ top: 10, right: 8, left: 8, bottom: 0 }}>
             <defs>

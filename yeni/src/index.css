@@ -33,6 +33,19 @@
   100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
 }
 
+/* Animated gradient blobs */
+@keyframes blobDriftA {
+  0% { transform: translate(-10%, -10%) scale(1.0); }
+  50% { transform: translate(5%, -5%) scale(1.06); }
+  100% { transform: translate(-6%, 6%) scale(1.02); }
+}
+
+@keyframes blobDriftB {
+  0% { transform: translate(10%, 10%) scale(1.0); }
+  50% { transform: translate(-4%, 2%) scale(1.05); }
+  100% { transform: translate(8%, -8%) scale(1.02); }
+}
+
 /* Base theme tokens */
 @layer base {
   :root {
@@ -74,8 +87,34 @@
 
 /* Backdrops and helpers */
 .bg-gradient-overlay {
-  background: radial-gradient(1200px 600px at 20% 10%, rgba(108,92,231,0.28), transparent 60%),
-              radial-gradient(1000px 500px at 90% 60%, rgba(34,211,238,0.18), transparent 60%);
+  position: relative;
+}
+
+.bg-gradient-overlay::before,
+.bg-gradient-overlay::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.bg-gradient-overlay::before {
+  top: -20vmax;
+  left: -10vmax;
+  background: radial-gradient(closest-side, rgba(108,92,231,0.35), transparent 70%);
+  animation: blobDriftA 18s ease-in-out infinite alternate;
+}
+
+.bg-gradient-overlay::after {
+  bottom: -18vmax;
+  right: -10vmax;
+  background: radial-gradient(closest-side, rgba(34,211,238,0.28), transparent 70%);
+  animation: blobDriftB 20s ease-in-out infinite alternate;
 }
 
 .vignette::before {
