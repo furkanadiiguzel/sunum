@@ -23,7 +23,7 @@ export function TopBar({ index, total, onOpenAtlas, locale, onToggleLocale }: Pr
           className="relative h-8 w-28 rounded-full border border-white/15 bg-white/10 backdrop-blur px-1 flex items-center shadow-[0_2px_10px_rgba(0,0,0,0.35)]"
         >
           <span className="absolute inset-0 flex items-center justify-between text-[11px] font-medium px-3 select-none">
-            <span className={locale === 'sq' ? 'text-porcelain' : 'text-porcelain/60'}>SQ</span>
+            <span className={locale === 'sq' ? 'text-porcelain' : 'text-porcelain/60'}>AL</span>
             <span className={locale === 'en' ? 'text-porcelain' : 'text-porcelain/60'}>EN</span>
           </span>
           <span
