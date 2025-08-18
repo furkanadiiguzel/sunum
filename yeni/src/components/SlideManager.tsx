@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion, cubicBezier } from 'framer-motion'
 import { useToggle } from 'react-use'
-import { slides } from '../content/slides'
+import { slides as slidesSq } from '../content/slides'
+import { slidesEn } from '../content/slides_en'
 import { SlideView } from './SlideView'
 import { TopBar } from './TopBar'
 import { ProgressDots } from './nav/ProgressDots'
@@ -12,6 +13,7 @@ export type Direction = 1 | -1
 
 export function SlideManager() {
   const [index, setIndex] = useState(0)
+  const [locale, setLocale] = useState<'sq' | 'en'>('sq')
   const [direction, setDirection] = useState<Direction>(1)
   const [isAtlasOpen, toggleAtlas] = useToggle(false)
   const prefersReduced = useMemo(
@@ -19,6 +21,7 @@ export function SlideManager() {
     []
   )
 
+  const slides = useMemo(() => (locale === 'sq' ? slidesSq : slidesEn), [locale])
   const total = slides.length
   const clampIndex = useCallback((i: number) => Math.max(0, Math.min(total - 1, i)), [total])
 
@@ -89,11 +92,11 @@ export function SlideManager() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-night">
-      <TopBar index={index} total={total} onOpenAtlas={() => toggleAtlas(true)} />
+      <TopBar index={index} total={total} onOpenAtlas={() => toggleAtlas(true)} locale={locale} onToggleLocale={() => setLocale((l) => (l === 'sq' ? 'en' : 'sq'))} />
 
       <AnimatePresence custom={direction} initial={false} mode="popLayout">
         <motion.main
-          key={slides[index].id}
+          key={`${locale}-${slides[index].id}`}
           custom={direction}
           variants={pageVariants}
           initial="enter"
@@ -106,6 +109,7 @@ export function SlideManager() {
             index={index}
             reducedMotion={prefersReduced}
             direction={direction}
+            locale={locale}
             onPrev={() => go(-1)}
             onNext={() => go(1)}
           />

@@ -11,9 +11,10 @@ type Props = {
   direction: Direction
   onPrev: () => void
   onNext: () => void
+  locale: 'sq' | 'en'
 }
 
-export const SlideView = memo(function SlideView({ slide, reducedMotion }: Props) {
+export const SlideView = memo(function SlideView({ slide, reducedMotion, locale }: Props) {
   const vignette = <div className="vignette absolute inset-0" aria-hidden="true" />
   const particles = (
     <svg className="particles" aria-hidden="true">
@@ -33,7 +34,26 @@ export const SlideView = memo(function SlideView({ slide, reducedMotion }: Props
   return (
     <div className="absolute inset-0">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="h-full w-full bg-night" aria-hidden="true" />
+        {slide.id === 'cover' ? (
+          <motion.img
+            src={slide.visual.src}
+            srcSet={slide.visual.srcSet}
+            sizes={slide.visual.sizes}
+            alt={slide.visual.alt}
+            className="h-full w-full object-cover will-change-transform"
+            initial={reducedMotion ? false : { scale: 1.06 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 12, ease: 'easeOut' }}
+          />
+        ) : (
+          <div className="h-full w-full bg-night" aria-hidden="true" />
+        )}
+        {slide.id === 'cover' ? (
+          <div
+            className="absolute inset-0 bg-black/65 md:bg-black/55 backdrop-blur-[2px] md:backdrop-blur-[6px]"
+            aria-hidden="true"
+          />
+        ) : null}
         {/* Animated blobs for visible purple/green motion */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <motion.div
@@ -119,7 +139,7 @@ export const SlideView = memo(function SlideView({ slide, reducedMotion }: Props
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           >
             <div className="w-full">
-              <SlideContentRouter slide={slide} />
+              <SlideContentRouter slide={slide} locale={locale} />
             </div>
           </motion.div>
         </div>

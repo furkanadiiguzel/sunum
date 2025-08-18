@@ -2,8 +2,9 @@ import { memo, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 type Message = { id: string; from: 'guest' | 'ai'; text: string }
+type Props = { locale?: 'sq' | 'en' }
 
-const MESSAGES: Message[] = [
+const MESSAGES_SQ: Message[] = [
   { id: 'm1', from: 'guest', text: 'Vijmë në 23:30—a mund të bëjmë ende check-in?' },
   {
     id: 'm2',
@@ -20,14 +21,32 @@ const MESSAGES: Message[] = [
   },
 ]
 
-export const PhoneConversation = memo(function PhoneConversation() {
+const MESSAGES_EN: Message[] = [
+  { id: 'm1', from: 'guest', text: 'Landing at 23:30—can I still check in?' },
+  {
+    id: 'm2',
+    from: 'ai',
+    text:
+      'Absolutely. Reception is open; if you like, I can send quick door instructions now. Safe travels!',
+  },
+  { id: 'm3', from: 'guest', text: "It's our anniversary." },
+  {
+    id: 'm4',
+    from: 'ai',
+    text:
+      'Congratulations! Would you like a small surprise in the room? I can arrange a mini dessert plate or flowers.',
+  },
+]
+
+export const PhoneConversation = memo(function PhoneConversation({ locale = 'sq' }: Props) {
   const [visible, setVisible] = useState<string[]>([])
   const [typing, setTyping] = useState(false)
 
   useEffect(() => {
     let timeout = 0
     const schedule = async () => {
-      for (const msg of MESSAGES) {
+      const source = locale === 'sq' ? MESSAGES_SQ : MESSAGES_EN
+      for (const msg of source) {
         if (msg.from === 'ai') {
           setTyping(true)
           await new Promise((r) => setTimeout(r, 650))
@@ -74,7 +93,9 @@ export const PhoneConversation = memo(function PhoneConversation() {
             {/* Conversation area */}
             <div className="pt-10 px-3 pb-4 space-y-2 overflow-hidden">
               <AnimatePresence initial={false}>
-                {MESSAGES.filter((m) => visible.includes(m.id)).map((m) => (
+                {(locale === 'sq' ? MESSAGES_SQ : MESSAGES_EN)
+                  .filter((m) => visible.includes(m.id))
+                  .map((m) => (
                   <motion.div
                     key={m.id}
                     initial={{ opacity: 0, y: 8 }}

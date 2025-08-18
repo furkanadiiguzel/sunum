@@ -13,11 +13,17 @@ import { SlideClosingCards } from './slides/SlideClosingCards'
 import { SlidePricing } from './slides/SlidePricing'
 import type { Slide } from '../content/slides'
 
-type Props = { slide: Slide }
+type Props = { slide: Slide; locale?: 'sq' | 'en' }
 
-export function SlideContentRouter({ slide }: Props) {
+export function SlideContentRouter({ slide, locale = 'sq' }: Props) {
   if (slide.id === 'first-contact') return <ChatBubbles />
-  if (slide.id === 'reservations') return <SlideReservations data={(slide.charts as any) || { responseBeforeMin: 12, responseAfterMin: 3, conversionUpliftPct: 18 }} />
+  if (slide.id === 'reservations')
+    return (
+      <SlideReservations
+        data={(slide.charts as any) || { responseBeforeMin: 12, responseAfterMin: 3, conversionUpliftPct: 18 }}
+        locale={locale}
+      />
+    )
   if (slide.id === 'operations') return <Timeline />
   if (slide.id === 'operations-kpi') return (
     <SlideOperationsKPI
@@ -32,6 +38,7 @@ export function SlideContentRouter({ slide }: Props) {
           receptionProcessing: { before: 6.5, after: 4.2 },
         }
       }
+      locale={locale}
     />
   )
   if (slide.id === 'upsell') return (
@@ -52,6 +59,7 @@ export function SlideContentRouter({ slide }: Props) {
           ],
         }
       }
+      locale={locale}
     />
   )
   if (slide.id === 'reputation')
@@ -69,6 +77,7 @@ export function SlideContentRouter({ slide }: Props) {
             ],
           }
         }
+        locale={locale}
       />
     )
   if (slide.id === 'report')
@@ -97,6 +106,7 @@ export function SlideContentRouter({ slide }: Props) {
             ],
           }
         }
+        locale={locale}
       />
     )
   if (slide.id === 'marketing')
@@ -117,64 +127,111 @@ export function SlideContentRouter({ slide }: Props) {
             ],
           }
         }
+        locale={locale}
       />
     )
-  if (slide.id === 'voice') return <PhoneConversation />
+  if (slide.id === 'voice') return <PhoneConversation locale={locale} />
   if (slide.id === 'closing')
     return (
       <SlideClosingCards
-        items={[
-          'Përgjigje më të shpejta ndaj mesazheve → mysafirë më të kënaqur, më shumë rezervime direkte.',
-          'Mbërritje dhe largime më të rrjedhshme → recepsion më i qetë, dhomat gati me kohë.',
-          'Të ardhura shtesë të qëndrueshme nga shtesat e thjeshta që pëlqejnë mysafirët.',
-          'Përgjigje të dukshme dhe në kohë ndaj vlerësimeve → reputacion online më i fortë.',
-          'Ritëm mujor: raport → plan veprimi → rezultate më të mira muajin tjetër.',
-        ]}
+        items={
+          locale === 'sq'
+            ? [
+                'Përgjigje më të shpejta ndaj mesazheve → mysafirë më të kënaqur, më shumë rezervime direkte.',
+                'Mbërritje dhe largime më të rrjedhshme → recepsion më i qetë, dhomat gati me kohë.',
+                'Të ardhura shtesë të qëndrueshme nga shtesat e thjeshta që pëlqejnë mysafirët.',
+                'Përgjigje të dukshme dhe në kohë ndaj vlerësimeve → reputacion online më i fortë.',
+                'Ritëm mujor: raport → plan veprimi → rezultate më të mira muajin tjetër.',
+              ]
+            : [
+                'Faster replies to guest messages → happier guests, more direct bookings.',
+                'Smoother arrivals and departures → calmer reception, rooms ready on time.',
+                'Steady extra revenue from simple add-ons guests like.',
+                'Visible, timely review replies → stronger online reputation.',
+                'A monthly rhythm of report → action plan → better results next month.',
+              ]
+        }
       />
     )
   if (slide.id === 'pricing')
     return (
       <SlidePricing
         data={
-          (slide.charts as any) || {
-            plans: [
-              {
-                name: 'Starter (Modular À la carte)',
-                price: 'Për shërbim',
-                features: [
-                  'Zgjidhni çdo aftësi të vetme (fushë & SLA e qartë)',
-                  'E shkëlqyer për të provuar IgnitOS në një fushë',
-                  'Pa angazhim afatgjatë',
+          (slide.charts as any) ||
+          (locale === 'sq'
+            ? {
+                plans: [
+                  {
+                    name: 'Starter (Modular À la carte)',
+                    price: 'Për shërbim',
+                    features: [
+                      'Zgjidhni çdo aftësi të vetme (fushë & SLA e qartë)',
+                      'E shkëlqyer për të provuar IgnitOS në një fushë',
+                      'Pa angazhim afatgjatë',
+                    ],
+                    cta: 'Kërko ofertë',
+                  },
+                  {
+                    name: 'Growth (Paketë)',
+                    price: 'Kurseni 15% (paketë)',
+                    features: [
+                      'Rezervime + Housekeeping + Vlerësime',
+                      'Automatizim & raporte ndër-funksionale',
+                      'Mbështetje prioritare',
+                    ],
+                    cta: 'Kërko ofertë',
+                  },
+                  {
+                    name: 'Pro (Paketa e Plotë)',
+                    price: 'Kurseni 25% (paketë)',
+                    features: [
+                      'Të gjitha aftësitë + rotacion plani marketingu',
+                      'Takime të dedikuara suksesi',
+                      'KPI & trajnime të përshtatura',
+                    ],
+                    cta: 'Kërko ofertë',
+                  },
                 ],
-                cta: 'Kërko ofertë',
-              },
-              {
-                name: 'Growth (Paketë)',
-                price: 'Kurseni 15% (paketë)',
-                features: [
-                  'Rezervime + Housekeeping + Vlerësime',
-                  'Automatizim & raporte ndër-funksionale',
-                  'Mbështetje prioritare',
+              }
+            : {
+                plans: [
+                  {
+                    name: 'Starter (Modular À la carte)',
+                    price: 'Per service',
+                    features: [
+                      'Pick any single capability (clear scope & SLA)',
+                      'Great for trying IgnitOS in one area',
+                      'No long-term commitment',
+                    ],
+                    cta: 'Request quote',
+                  },
+                  {
+                    name: 'Growth (Bundled)',
+                    price: 'Save 15% bundle',
+                    features: [
+                      'Reservations + Housekeeping + Reviews',
+                      'Cross-feature automation & reporting',
+                      'Priority support',
+                    ],
+                    cta: 'Request quote',
+                  },
+                  {
+                    name: 'Pro (Full Suite)',
+                    price: 'Save 25% bundle',
+                    features: [
+                      'All capabilities + Marketing plan rotation',
+                      'Dedicated success check-ins',
+                      'Tailored KPIs & training',
+                    ],
+                    cta: 'Request quote',
+                  },
                 ],
-                cta: 'Kërko ofertë',
-              },
-              {
-                name: 'Pro (Paketa e Plotë)',
-                price: 'Kurseni 25% (paketë)',
-                features: [
-                  'Të gjitha aftësitë + rotacion plani marketingu',
-                  'Takime të dedikuara suksesi',
-                  'KPI & trajnime të përshtatura',
-                ],
-                cta: 'Kërko ofertë',
-              },
-            ],
-          }
+              })
         }
       />
     )
   if (slide.id === 'team') return <Toasts />
-  if (slide.id === 'metrics' && slide.charts) return <SlideMetrics data={slide.charts as any} />
+  if (slide.id === 'metrics' && slide.charts) return <SlideMetrics data={slide.charts as any} locale={locale} />
   return null
 }
 

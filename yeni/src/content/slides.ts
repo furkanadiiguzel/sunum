@@ -17,6 +17,11 @@ export type Slide = {
   animations?: Record<string, unknown>
 }
 
+// Local assets
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore - handled by Vite
+import hotelBg from '../assets/hotel.jpg'
+
 const srcset = (url: string) => ({
   src: `${url}?auto=format&fit=crop&w=1280&q=70`,
   srcSet: `${url}?auto=format&fit=crop&w=480&q=60 480w, ${url}?auto=format&fit=crop&w=768&q=65 768w, ${url}?auto=format&fit=crop&w=1280&q=70 1280w, ${url}?auto=format&fit=crop&w=1920&q=75 1920w`,
@@ -33,8 +38,10 @@ export const slides: Slide[] = [
       'Kjo prezantim tregon si një sistem i vetëm, i orkestruar mirë, rrit qëndrueshmërinë e shërbimit, përshpejton operacionet dhe e kthen çdo ndërveprim—shitje, mbështetje ose shpërndarje—në një mundësi për të lënë përshtypje.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
-      alt: 'Modern workspace with team collaborating.',
+      src: hotelBg as unknown as string,
+      srcSet: hotelBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Pamje nate e një hoteli me pishinë të ndriçuar.',
     },
   },
   {

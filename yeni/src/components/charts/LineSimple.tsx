@@ -3,9 +3,9 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianG
 import { ChartTheme } from './ChartTheme'
 
 type Datum = { label: string; value: number }
-type Props = { data: Datum[]; caption?: string; yDomain?: [number, number]; unit?: string; height?: number }
+type Props = { data: Datum[]; caption?: string; yDomain?: [number, number]; unit?: string; height?: number; seriesName?: string }
 
-export const LineSimple = memo(function LineSimple({ data, caption, yDomain, unit, height }: Props) {
+export const LineSimple = memo(function LineSimple({ data, caption, yDomain, unit, height, seriesName }: Props) {
   return (
     <figure aria-label="Grafik vijor" className="card-surface p-4">
       <figcaption className="mb-2 text-sm text-porcelain/80">{caption ?? 'Tendencë me kalimin e kohës'}</figcaption>
@@ -17,7 +17,7 @@ export const LineSimple = memo(function LineSimple({ data, caption, yDomain, uni
             <YAxis stroke={ChartTheme.axis.stroke} domain={yDomain ?? [0, 'auto']} tick={{ fill: ChartTheme.axis.tick, fontSize: ChartTheme.axis.fontSize }} unit={unit} />
             <Tooltip contentStyle={{ background: 'rgba(20,24,36,0.9)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 12 }} />
             <Legend />
-            <Line type="monotone" dataKey="value" stroke={ChartTheme.colors.primary} strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="value" name={seriesName ?? 'Value'} stroke={ChartTheme.colors.primary} strokeWidth={2} dot={false} />
           </LineChart>
         </ResponsiveContainer>
       </div>
