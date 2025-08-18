@@ -18,14 +18,10 @@ export function SlideMetrics({ data }: Props) {
     { category: 'Revenue', Before: data.kpis[3].before, After: data.kpis[3].after },
   ]
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-      <div className="md:col-span-2">
-        <BarsComparison data={barData} />
-      </div>
-      <DonutProgress value={data.donut.onTime} remainder={data.donut.late} />
-      <div className="md:col-span-3">
-        <Sparkline values={data.satisfaction7d} />
-      </div>
+    <div className="grid grid-cols-1 gap-3">
+      <BarsComparison data={barData} caption="Clear improvements across key service KPIs" />
+      <DonutProgress value={data.donut.onTime} remainder={data.donut.late} caption="On-time readiness" />
+      <Sparkline values={data.satisfaction7d} caption="Satisfaction trend (7 days)" yDomain={[0, 100]} />
     </div>
   )
 }

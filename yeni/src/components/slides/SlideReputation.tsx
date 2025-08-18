@@ -1,0 +1,27 @@
+import { memo } from 'react'
+import { BarsComparison } from '../charts/BarsComparison'
+import { LineSimple } from '../charts/LineSimple'
+import { ChartContainer } from '../charts/ChartContainer'
+
+type Props = {
+  data: {
+    answeredWithin24Before: number
+    answeredWithin24After: number
+    starByQuarter: { label: string; value: number }[]
+  }
+}
+
+export const SlideReputation = memo(function SlideReputation({ data }: Props) {
+  const bars = [
+    { category: 'Reviews answered <24h (%)', Before: data.answeredWithin24Before, After: data.answeredWithin24After },
+  ]
+  return (
+    <ChartContainer>
+      <div className="grid grid-cols-1 gap-3">
+        <BarsComparison data={bars} caption="Before/After: 24h review response rate" />
+        <LineSimple data={data.starByQuarter} caption="Average star rating by quarter" yDomain={[0, 5]} height={130} />
+      </div>
+    </ChartContainer>
+  )
+})
+

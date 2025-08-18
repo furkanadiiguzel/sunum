@@ -52,14 +52,19 @@ export const SlideView = memo(function SlideView({ slide, reducedMotion }: Props
       </div>
 
       <div className="relative z-10 h-full w-full">
-        <div className="mx-auto flex h-full max-w-6xl items-center px-6">
-          <div className="card-surface p-8 md:p-10 max-w-3xl">
+        <div className="mx-auto h-full max-w-7xl px-6 py-10 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_420px] items-center gap-8">
+          <motion.div
+            className="card-surface p-8 md:p-10 max-w-3xl"
+            initial={reducedMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             {slide.lead ? (
               <div className="mb-4 text-sm text-porcelain/80 tracking-wide">
                 {slide.lead}
               </div>
             ) : null}
-            <h1 className="font-display font-semibold text-3xl md:text-5xl tracking-tight">
+            <h1 className="font-display font-semibold text-2xl md:text-4xl tracking-tight">
               {slide.title}
             </h1>
             {slide.body ? (
@@ -77,10 +82,17 @@ export const SlideView = memo(function SlideView({ slide, reducedMotion }: Props
                 ))}
               </ul>
             ) : null}
-          </div>
-          <div className="ml-8 hidden md:block">
-            <SlideContentRouter slide={slide} />
-          </div>
+          </motion.div>
+          <motion.div
+            className="hidden md:block w-full"
+            initial={reducedMotion ? false : { opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+          >
+            <div className="w-full" style={{ maxWidth: 420 }}>
+              <SlideContentRouter slide={slide} />
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

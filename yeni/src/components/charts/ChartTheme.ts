@@ -8,8 +8,8 @@ export const ChartTheme = {
   axis: {
     stroke: 'rgba(255,255,255,0.40)',
     tick: 'rgba(244,246,249,0.86)',
-    fontSize: 12,
+    fontSize: 10,
   },
-  barRadius: 10,
+  barRadius: 8,
 }
 

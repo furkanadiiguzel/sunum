@@ -2,20 +2,20 @@ import { memo } from 'react'
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 import { ChartTheme } from './ChartTheme'
 
-type Props = { value: number; remainder: number }
+type Props = { value: number; remainder: number; caption?: string }
 
-export const DonutProgress = memo(function DonutProgress({ value, remainder }: Props) {
+export const DonutProgress = memo(function DonutProgress({ value, remainder, caption }: Props) {
   const data = [
     { name: 'On Time', value },
     { name: 'Late', value: remainder },
   ]
   return (
-    <figure aria-label="On-Time Readiness" className="card-surface p-4 flex flex-col items-center justify-center">
-      <figcaption className="mb-2 text-sm text-porcelain/80">On-time room readiness</figcaption>
-      <div className="w-full" style={{ height: 220 }}>
+    <figure aria-label="On-Time Readiness" className="card-surface p-3 flex flex-col items-center justify-center">
+      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'On-time room readiness'}</figcaption>
+      <div className="w-full" style={{ height: 150 }}>
         <ResponsiveContainer>
           <PieChart>
-            <Pie data={data} innerRadius={60} outerRadius={90} paddingAngle={2} dataKey="value">
+            <Pie data={data} innerRadius={45} outerRadius={70} paddingAngle={2} dataKey="value">
               <Cell fill={ChartTheme.colors.accent} />
               <Cell fill={ChartTheme.colors.grid} />
             </Pie>
@@ -23,9 +23,9 @@ export const DonutProgress = memo(function DonutProgress({ value, remainder }: P
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div className="-mt-28 text-center">
-        <div className="text-3xl font-semibold">{value}%</div>
-        <div className="text-xs text-porcelain/70">On Time</div>
+      <div className="-mt-16 text-center">
+        <div className="text-2xl font-semibold">{value}%</div>
+        <div className="text-[11px] text-porcelain/70">On Time</div>
       </div>
     </figure>
   )
