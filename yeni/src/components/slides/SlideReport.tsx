@@ -10,17 +10,17 @@ type Props = {
     shareByRegion: { label: string; value: number }[]
     occupancyVsCancels: { label: string; a: number; b: number }[]
   }
-  locale?: 'sq' | 'en'
+  locale?: 'tr' | 'en'
 }
 
-export const SlideReport = memo(function SlideReport({ data, locale = 'sq' }: Props) {
+export const SlideReport = memo(function SlideReport({ data, locale = 'tr' }: Props) {
   return (
     <ChartContainer>
       <div className="grid grid-cols-1 gap-3">
         <HeatmapGrid
           values={data.advanceDaysHeatmap}
           caption={
-            locale === 'sq' ? 'Sa ditë përpara rezervojnë mysafirët' : 'How many days in advance guests book'
+            locale === 'tr' ? 'Misafirler kaç gün önceden rezervasyon yapıyor' : 'How many days in advance guests book'
           }
         />
         <BarSimple
@@ -29,16 +29,16 @@ export const SlideReport = memo(function SlideReport({ data, locale = 'sq' }: Pr
             value: d.value,
           }))}
           caption={
-            locale === 'sq' ? 'Pjesa e netëve sipas vendit/rajonit' : 'Share of nights by country/region'
+            locale === 'tr' ? 'Ülke/bölgeye göre geceleme payı' : 'Share of nights by country/region'
           }
           height={110}
         />
         <LineTwoSeries
           data={data.occupancyVsCancels}
           caption={
-            locale === 'sq' ? 'Shfrytëzimi & anulimet sipas muajit' : 'Occupancy & cancellations by month'
+            locale === 'tr' ? 'Aylara göre doluluk ve iptaller' : 'Occupancy & cancellations by month'
           }
-          labels={locale === 'sq' ? { a: 'Shfrytëzim %', b: 'Anulime %' } : { a: 'Occupancy %', b: 'Cancellations %' }}
+          labels={locale === 'tr' ? { a: 'Doluluk %', b: 'İptaller %' } : { a: 'Occupancy %', b: 'Cancellations %' }}
           yDomain={[0, 100]}
           unit=" %"
           height={130}

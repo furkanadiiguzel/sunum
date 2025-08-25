@@ -7,14 +7,14 @@ type Props = {
     responseAfterMin: number
     conversionUpliftPct: number
   }
-  locale?: 'sq' | 'en'
+  locale?: 'tr' | 'en'
 }
 
-export const SlideReservations = memo(function SlideReservations({ data, locale = 'sq' }: Props) {
+export const SlideReservations = memo(function SlideReservations({ data, locale = 'tr' }: Props) {
   const barData = [
     {
       category:
-        locale === 'sq' ? 'Koha e përgjigjes së parë (min)' : 'First response time (min)',
+        locale === 'tr' ? 'İlk yanıt süresi (dk)' : 'First response time (min)',
       Before: data.responseBeforeMin,
       After: data.responseAfterMin,
     },
@@ -24,20 +24,20 @@ export const SlideReservations = memo(function SlideReservations({ data, locale 
       <BarsComparison
         data={barData}
         caption={
-          locale === 'sq'
-            ? 'Para vs. pas: koha e përgjigjes së parë (minuta)'
+          locale === 'tr'
+            ? 'Önce vs sonra: ilk yanıt süresi (dakika)'
             : 'Before vs. after: first response time (minutes)'
         }
-        beforeLabel={locale === 'sq' ? 'Para' : 'Before'}
-        afterLabel={locale === 'sq' ? 'Pas' : 'After'}
+        beforeLabel={locale === 'tr' ? 'Önce' : 'Before'}
+        afterLabel={locale === 'tr' ? 'Sonra' : 'After'}
       />
       <div className="card-surface p-5 flex flex-col items-start justify-center gap-1.5">
         <div className="text-xs text-porcelain/70">
-          {locale === 'sq' ? 'Më shumë kërkesa që kthehen në rezervime' : 'More inquiries turning into bookings'}
+          {locale === 'tr' ? 'Daha fazla talep rezervasyona dönüyor' : 'More inquiries turning into bookings'}
         </div>
         <div className="text-3xl font-semibold text-mint">+{data.conversionUpliftPct}%</div>
         <div className="text-[11px] text-porcelain/60">
-          {locale === 'sq' ? 'Shndërrimi në rezervim' : 'Conversion to booking'}
+          {locale === 'tr' ? 'Rezervasyona dönüşüm' : 'Conversion to booking'}
         </div>
       </div>
     </div>

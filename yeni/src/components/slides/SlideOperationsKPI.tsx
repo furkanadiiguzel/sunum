@@ -8,13 +8,13 @@ type Props = {
     roomReadyMinutesWeekly: { label: string; value: number }[]
     receptionProcessing: { before: number; after: number }
   }
-  locale?: 'sq' | 'en'
+  locale?: 'tr' | 'en'
 }
 
-export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, locale = 'sq' }: Props) {
+export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, locale = 'tr' }: Props) {
   const barData = [
     {
-      category: locale === 'sq' ? 'Përpunimi në recepsion (min)' : 'Reception processing (min)',
+      category: locale === 'tr' ? 'Resepsiyon işlemi (dk)' : 'Reception processing (min)',
       Before: data.receptionProcessing.before,
       After: data.receptionProcessing.after,
     },
@@ -25,8 +25,8 @@ export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, local
         <LineSimple
           data={data.roomReadyMinutesWeekly}
           caption={
-            locale === 'sq'
-              ? 'Koha mesatare për gatishmërinë e dhomës (minuta) në javë'
+            locale === 'tr'
+              ? 'Haftalık oda hazır olma süresi (dakika)'
               : 'Average room-ready time (minutes) per week'
           }
           yDomain={[0, 'auto'] as any}
@@ -36,12 +36,12 @@ export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, local
         <BarsComparison
           data={barData}
           caption={
-            locale === 'sq'
-              ? 'Përpunimi i recepsionit për ardhje (para vs pas)'
+            locale === 'tr'
+              ? 'Gelişe göre resepsiyon işlemi (önce vs sonra)'
               : 'Reception processing per arrival (before vs after)'
           }
-          beforeLabel={locale === 'sq' ? 'Para' : 'Before'}
-          afterLabel={locale === 'sq' ? 'Pas' : 'After'}
+          beforeLabel={locale === 'tr' ? 'Önce' : 'Before'}
+          afterLabel={locale === 'tr' ? 'Sonra' : 'After'}
         />
       </div>
     </ChartContainer>

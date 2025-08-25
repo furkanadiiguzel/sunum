@@ -11,7 +11,7 @@ type Props = {
   direction: Direction
   onPrev: () => void
   onNext: () => void
-  locale: 'sq' | 'en'
+  locale: 'tr' | 'en'
 }
 
 export const SlideView = memo(function SlideView({ slide, reducedMotion, locale }: Props) {

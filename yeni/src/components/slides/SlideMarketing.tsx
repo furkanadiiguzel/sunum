@@ -8,23 +8,23 @@ type Props = {
     funnel: { label: string; a: number; b: number }[]
     bookingsByCampaign: { category: string; Before: number; After: number }[]
   }
-  locale?: 'sq' | 'en'
+  locale?: 'tr' | 'en'
 }
 
-export const SlideMarketing = memo(function SlideMarketing({ data, locale = 'sq' }: Props) {
+export const SlideMarketing = memo(function SlideMarketing({ data, locale = 'tr' }: Props) {
   return (
     <ChartContainer>
       <div className="grid grid-cols-1 gap-3">
         <LineTwoSeries
           data={data.funnel}
           caption={
-            locale === 'sq'
-              ? 'Gyp mujor: vizita → kërkesa → rezervime → shtesa'
+            locale === 'tr'
+              ? 'Aylık hunisi: ziyaretler → talepler → rezervasyonlar → ek satış'
               : 'Monthly funnel: visits → inquiries → bookings → add-ons'
           }
           labels={
-            locale === 'sq'
-              ? { a: 'Vizita/Kërkesa', b: 'Rezervime/Shtesa' }
+            locale === 'tr'
+              ? { a: 'Ziyaretler/Talepler', b: 'Rezervasyonlar/Ek satış' }
               : { a: 'Visits/Inquiries', b: 'Bookings/Add-ons' }
           }
           height={140}
@@ -32,12 +32,12 @@ export const SlideMarketing = memo(function SlideMarketing({ data, locale = 'sq'
         <BarsComparison
           data={data.bookingsByCampaign}
           caption={
-            locale === 'sq'
-              ? 'Rezervime të fituara nga fushatat (muaj pas muaji)'
+            locale === 'tr'
+              ? 'Kampanyaya göre kazanılan rezervasyonlar (Ay/Ay)'
               : 'Bookings gained by campaign (MoM)'
           }
-          beforeLabel={locale === 'sq' ? 'Para' : 'Before'}
-          afterLabel={locale === 'sq' ? 'Pas' : 'After'}
+          beforeLabel={locale === 'tr' ? 'Önce' : 'Before'}
+          afterLabel={locale === 'tr' ? 'Sonra' : 'After'}
         />
       </div>
     </ChartContainer>

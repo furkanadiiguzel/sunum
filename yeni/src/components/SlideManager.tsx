@@ -1,27 +1,27 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion, cubicBezier } from 'framer-motion'
 import { useToggle } from 'react-use'
-import { slides as slidesSq } from '../content/slides'
-import { slidesEn } from '../content/slides_en'
 import { SlideView } from './SlideView'
 import { TopBar } from './TopBar'
 import { ProgressDots } from './nav/ProgressDots'
 import { Controls } from './nav/Controls'
 import { AtlasModal } from './nav/AtlasModal'
+import { useContent } from '../content/ContentProvider'
 
 export type Direction = 1 | -1
 
 export function SlideManager() {
   const [index, setIndex] = useState(0)
-  const [locale, setLocale] = useState<'sq' | 'en'>('sq')
+  const [locale, setLocale] = useState<'tr' | 'en'>('tr')
   const [direction, setDirection] = useState<Direction>(1)
   const [isAtlasOpen, toggleAtlas] = useToggle(false)
   const prefersReduced = useMemo(
     () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
     []
   )
+  const { slidesTr, slidesEn } = useContent()
 
-  const slides = useMemo(() => (locale === 'sq' ? slidesSq : slidesEn), [locale])
+  const slides = useMemo(() => (locale === 'tr' ? slidesTr : slidesEn), [locale, slidesTr, slidesEn])
   const total = slides.length
   const clampIndex = useCallback((i: number) => Math.max(0, Math.min(total - 1, i)), [total])
 
@@ -55,30 +55,31 @@ export function SlideManager() {
 
   // Touch swipe
   useEffect(() => {
-    let startX = 0
-    let active = false
-    const threshold = 40
-    const onStart = (e: TouchEvent) => {
-      active = true
-      startX = e.touches[0].clientX
-    }
-    const onMove = (e: TouchEvent) => {
-      if (!active) return
-      const dx = e.touches[0].clientX - startX
-      if (Math.abs(dx) > threshold) {
-        go(dx < 0 ? 1 : -1)
-        active = false
+    const onTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0]
+      const startX = touch.clientX
+      const startY = touch.clientY
+
+      const onTouchMove = (e: TouchEvent) => {
+        const touch = e.touches[0]
+        const dx = touch.clientX - startX
+        const dy = touch.clientY - startY
+
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 30) {
+          if (dx > 0) go(-1)
+          else go(1)
+          window.removeEventListener('touchmove', onTouchMove)
+        }
       }
+
+      window.addEventListener('touchmove', onTouchMove)
+      window.addEventListener('touchend', () => {
+        window.removeEventListener('touchmove', onTouchMove)
+      }, { once: true })
     }
-    const onEnd = () => (active = false)
-    window.addEventListener('touchstart', onStart)
-    window.addEventListener('touchmove', onMove)
-    window.addEventListener('touchend', onEnd)
-    return () => {
-      window.removeEventListener('touchstart', onStart)
-      window.removeEventListener('touchmove', onMove)
-      window.removeEventListener('touchend', onEnd)
-    }
+
+    window.addEventListener('touchstart', onTouchStart)
+    return () => window.removeEventListener('touchstart', onTouchStart)
   }, [go])
 
   const pageVariants = useMemo(() => {
@@ -92,11 +93,11 @@ export function SlideManager() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-night">
-      <TopBar index={index} total={total} onOpenAtlas={() => toggleAtlas(true)} locale={locale} onToggleLocale={() => setLocale((l) => (l === 'sq' ? 'en' : 'sq'))} />
+      <TopBar index={index} total={total} onOpenAtlas={() => toggleAtlas(true)} locale={locale} onToggleLocale={() => setLocale((l) => (l === 'tr' ? 'en' : 'tr'))} />
 
       <AnimatePresence custom={direction} initial={false} mode="popLayout">
         <motion.main
-          key={`${locale}-${slides[index].id}`}
+          key={`${locale}-${slides[index]?.id}`}
           custom={direction}
           variants={pageVariants}
           initial="enter"
@@ -104,15 +105,17 @@ export function SlideManager() {
           exit="exit"
           className="absolute inset-0"
         >
-          <SlideView
-            slide={slides[index]}
-            index={index}
-            reducedMotion={prefersReduced}
-            direction={direction}
-            locale={locale}
-            onPrev={() => go(-1)}
-            onNext={() => go(1)}
-          />
+          {slides[index] ? (
+            <SlideView
+              slide={slides[index]}
+              index={index}
+              reducedMotion={prefersReduced}
+              direction={direction}
+              locale={locale}
+              onPrev={() => go(-1)}
+              onNext={() => go(1)}
+            />
+          ) : null}
         </motion.main>
       </AnimatePresence>
 

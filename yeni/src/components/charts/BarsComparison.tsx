@@ -12,8 +12,8 @@ type Props = {
 
 export const BarsComparison = memo(function BarsComparison({ data, caption, beforeLabel = 'Before', afterLabel = 'After' }: Props) {
   return (
-    <figure aria-label="Para vs Pas sipas KPI" className="card-surface p-3">
-      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'Rritje e qartë në përgjigje, gatishmëri, zgjidhje dhe të ardhura.'}</figcaption>
+    <figure aria-label="Before vs After by KPI" className="card-surface p-3">
+      <figcaption className="mb-1.5 text-xs text-porcelain/80">{caption ?? 'Clear uplift in response, readiness, resolution and revenue.'}</figcaption>
       <ResponsiveContainer width="100%" height={140}>
         <BarChart data={data} barCategoryGap={10} margin={{ top: 2, right: 6, left: 6, bottom: 0 }}>
           <CartesianGrid stroke={ChartTheme.colors.grid} vertical={false} />

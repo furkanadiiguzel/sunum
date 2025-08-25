@@ -2,22 +2,22 @@ import { memo, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 type Message = { id: string; from: 'guest' | 'ai'; text: string }
-type Props = { locale?: 'sq' | 'en' }
+type Props = { locale?: 'tr' | 'en' }
 
-const MESSAGES_SQ: Message[] = [
-  { id: 'm1', from: 'guest', text: 'Vijmë në 23:30—a mund të bëjmë ende check-in?' },
+const MESSAGES_TR: Message[] = [
+  { id: 'm1', from: 'guest', text: '23:30’da geliyoruz—hala check-in yapabilir miyiz?' },
   {
     id: 'm2',
     from: 'ai',
     text:
-      'Patjetër. Recepsioni është i hapur; nëse dëshironi, mund t’ju dërgoj tani udhëzimet për derën. Udhëtim të mbarë!',
+      'Tabii ki. Resepsiyon açık; isterseniz kapı talimatlarını şimdi gönderebilirim. İyi yolculuklar!',
   },
-  { id: 'm3', from: 'guest', text: 'Është përvjetori ynë.' },
+  { id: 'm3', from: 'guest', text: 'Yıldönümümüz.' },
   {
     id: 'm4',
     from: 'ai',
     text:
-      'Urime! Dëshironi një surprizë të vogël në dhomë? Mund të organizoj një pjatë me ëmbëlsira ose lule.',
+      'Tebrikler! Odanızda küçük bir sürpriz ister misiniz? Tatlı tabağı veya çiçekler ayarlayabilirim.',
   },
 ]
 
@@ -38,14 +38,14 @@ const MESSAGES_EN: Message[] = [
   },
 ]
 
-export const PhoneConversation = memo(function PhoneConversation({ locale = 'sq' }: Props) {
+export const PhoneConversation = memo(function PhoneConversation({ locale = 'tr' }: Props) {
   const [visible, setVisible] = useState<string[]>([])
   const [typing, setTyping] = useState(false)
 
   useEffect(() => {
     let timeout = 0
     const schedule = async () => {
-      const source = locale === 'sq' ? MESSAGES_SQ : MESSAGES_EN
+      const source = locale === 'tr' ? MESSAGES_TR : MESSAGES_EN
       for (const msg of source) {
         if (msg.from === 'ai') {
           setTyping(true)
@@ -61,7 +61,7 @@ export const PhoneConversation = memo(function PhoneConversation({ locale = 'sq'
       schedule()
     }, 300)
     return () => window.clearTimeout(timeout)
-  }, [])
+  }, [locale])
 
   return (
     <div className="mx-auto w-full flex justify-center">
@@ -93,7 +93,7 @@ export const PhoneConversation = memo(function PhoneConversation({ locale = 'sq'
             {/* Conversation area */}
             <div className="pt-10 px-3 pb-4 space-y-2 overflow-hidden">
               <AnimatePresence initial={false}>
-                {(locale === 'sq' ? MESSAGES_SQ : MESSAGES_EN)
+                {(locale === 'tr' ? MESSAGES_TR : MESSAGES_EN)
                   .filter((m) => visible.includes(m.id))
                   .map((m) => (
                   <motion.div

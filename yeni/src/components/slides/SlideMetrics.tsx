@@ -8,28 +8,28 @@ type Props = {
     donut: { onTime: number; late: number }
     satisfaction7d: number[]
   }
-  locale?: 'sq' | 'en'
+  locale?: 'tr' | 'en'
 }
 
-export function SlideMetrics({ data, locale = 'sq' }: Props) {
+export function SlideMetrics({ data, locale = 'tr' }: Props) {
   const barData = [
     {
-      category: locale === 'sq' ? 'Përgjigje' : 'Response',
+      category: locale === 'tr' ? 'Yanıt' : 'Response',
       Before: data.kpis[0].before,
       After: data.kpis[0].after,
     },
     {
-      category: locale === 'sq' ? 'Gatishmëri' : 'Readiness',
+      category: locale === 'tr' ? 'Hazırlık' : 'Readiness',
       Before: data.kpis[1].before,
       After: data.kpis[1].after,
     },
     {
-      category: locale === 'sq' ? 'Zgjidhje' : 'Resolution',
+      category: locale === 'tr' ? 'Çözüm' : 'Resolution',
       Before: data.kpis[2].before,
       After: data.kpis[2].after,
     },
     {
-      category: locale === 'sq' ? 'Të ardhura' : 'Revenue',
+      category: locale === 'tr' ? 'Gelir' : 'Revenue',
       Before: data.kpis[3].before,
       After: data.kpis[3].after,
     },
@@ -39,21 +39,21 @@ export function SlideMetrics({ data, locale = 'sq' }: Props) {
       <BarsComparison
         data={barData}
         caption={
-          locale === 'sq' ? 'Përmirësime të qarta në KPI-t kryesore të shërbimit' : 'Clear improvements across key service KPIs'
+          locale === 'tr' ? 'Hizmetin temel KPI’larında net iyileşmeler' : 'Clear improvements across key service KPIs'
         }
-        beforeLabel={locale === 'sq' ? 'Para' : 'Before'}
-        afterLabel={locale === 'sq' ? 'Pas' : 'After'}
+        beforeLabel={locale === 'tr' ? 'Önce' : 'Before'}
+        afterLabel={locale === 'tr' ? 'Sonra' : 'After'}
       />
       <DonutProgress
         value={data.donut.onTime}
         remainder={data.donut.late}
-        caption={locale === 'sq' ? 'Gatishmëri në kohë' : 'On-time readiness'}
-        labelOn={locale === 'sq' ? 'Në kohë' : 'On Time'}
-        labelOff={locale === 'sq' ? 'Me vonesë' : 'Late'}
+        caption={locale === 'tr' ? 'Zamanında hazırlık' : 'On-time readiness'}
+        labelOn={locale === 'tr' ? 'Zamanında' : 'On Time'}
+        labelOff={locale === 'tr' ? 'Gecikmeli' : 'Late'}
       />
       <Sparkline
         values={data.satisfaction7d}
-        caption={locale === 'sq' ? 'Tendenca e kënaqësisë (7 ditë)' : 'Satisfaction trend (7 days)'}
+        caption={locale === 'tr' ? 'Memnuniyet eğilimi (7 gün)' : 'Satisfaction trend (7 days)'}
         yDomain={[0, 100]}
       />
     </div>

@@ -13,9 +13,9 @@ import { SlideClosingCards } from './slides/SlideClosingCards'
 import { SlidePricing } from './slides/SlidePricing'
 import type { Slide } from '../content/slides'
 
-type Props = { slide: Slide; locale?: 'sq' | 'en' }
+type Props = { slide: Slide; locale?: 'tr' | 'en' }
 
-export function SlideContentRouter({ slide, locale = 'sq' }: Props) {
+export function SlideContentRouter({ slide, locale = 'tr' }: Props) {
   if (slide.id === 'first-contact') return <ChatBubbles />
   if (slide.id === 'reservations')
     return (
@@ -85,25 +85,13 @@ export function SlideContentRouter({ slide, locale = 'sq' }: Props) {
       <SlideReport
         data={
           (slide.charts as any) || {
-            advanceDaysHeatmap: [
-              [4, 3, 2, 1, 0, 0, 1, 2, 3, 4],
-              [5, 4, 3, 2, 1, 1, 2, 3, 4, 5],
-              [6, 5, 4, 3, 2, 2, 3, 4, 5, 6],
-              [8, 6, 5, 4, 3, 3, 4, 5, 6, 8],
-              [10, 8, 6, 5, 4, 4, 5, 6, 8, 10],
+            monthlyRevenue: [
+              { label: 'Jan', value: 12000 },
+              { label: 'Feb', value: 13000 },
+              { label: 'Mar', value: 14000 },
+              { label: 'Apr', value: 15000 },
             ],
-            shareByRegion: [
-              { label: 'AL', value: 35 },
-              { label: 'TR', value: 22 },
-              { label: 'RS', value: 18 },
-              { label: 'EU', value: 25 },
-            ],
-            occupancyVsCancels: [
-              { label: 'Jan', a: 52, b: 12 },
-              { label: 'Feb', a: 57, b: 10 },
-              { label: 'Mar', a: 63, b: 9 },
-              { label: 'Apr', a: 68, b: 8 },
-            ],
+            occupancyRate: { before: 75, after: 85 },
           }
         }
         locale={locale}
@@ -134,99 +122,30 @@ export function SlideContentRouter({ slide, locale = 'sq' }: Props) {
   if (slide.id === 'closing')
     return (
       <SlideClosingCards
-        items={
-          locale === 'sq'
-            ? [
-                'Përgjigje më të shpejta ndaj mesazheve → mysafirë më të kënaqur, më shumë rezervime direkte.',
-                'Mbërritje dhe largime më të rrjedhshme → recepsion më i qetë, dhomat gati me kohë.',
-                'Të ardhura shtesë të qëndrueshme nga shtesat e thjeshta që pëlqejnë mysafirët.',
-                'Përgjigje të dukshme dhe në kohë ndaj vlerësimeve → reputacion online më i fortë.',
-                'Ritëm mujor: raport → plan veprimi → rezultate më të mira muajin tjetër.',
-              ]
-            : [
-                'Faster replies to guest messages → happier guests, more direct bookings.',
-                'Smoother arrivals and departures → calmer reception, rooms ready on time.',
-                'Steady extra revenue from simple add-ons guests like.',
-                'Visible, timely review replies → stronger online reputation.',
-                'A monthly rhythm of report → action plan → better results next month.',
-              ]
-        }
+        items={slide.bullets as string[]}
       />
     )
   if (slide.id === 'pricing')
     return (
       <SlidePricing
         data={
-          (slide.charts as any) ||
-          (locale === 'sq'
-            ? {
-                plans: [
-                  {
-                    name: 'Starter (Modular À la carte)',
-                    price: 'Për shërbim',
-                    features: [
-                      'Zgjidhni çdo aftësi të vetme (fushë & SLA e qartë)',
-                      'E shkëlqyer për të provuar IgnitOS në një fushë',
-                      'Pa angazhim afatgjatë',
-                    ],
-                    cta: 'Kërko ofertë',
-                  },
-                  {
-                    name: 'Growth (Paketë)',
-                    price: 'Kurseni 15% (paketë)',
-                    features: [
-                      'Rezervime + Housekeeping + Vlerësime',
-                      'Automatizim & raporte ndër-funksionale',
-                      'Mbështetje prioritare',
-                    ],
-                    cta: 'Kërko ofertë',
-                  },
-                  {
-                    name: 'Pro (Paketa e Plotë)',
-                    price: 'Kurseni 25% (paketë)',
-                    features: [
-                      'Të gjitha aftësitë + rotacion plani marketingu',
-                      'Takime të dedikuara suksesi',
-                      'KPI & trajnime të përshtatura',
-                    ],
-                    cta: 'Kërko ofertë',
-                  },
-                ],
-              }
-            : {
-                plans: [
-                  {
-                    name: 'Starter (Modular À la carte)',
-                    price: 'Per service',
-                    features: [
-                      'Pick any single capability (clear scope & SLA)',
-                      'Great for trying IgnitOS in one area',
-                      'No long-term commitment',
-                    ],
-                    cta: 'Request quote',
-                  },
-                  {
-                    name: 'Growth (Bundled)',
-                    price: 'Save 15% bundle',
-                    features: [
-                      'Reservations + Housekeeping + Reviews',
-                      'Cross-feature automation & reporting',
-                      'Priority support',
-                    ],
-                    cta: 'Request quote',
-                  },
-                  {
-                    name: 'Pro (Full Suite)',
-                    price: 'Save 25% bundle',
-                    features: [
-                      'All capabilities + Marketing plan rotation',
-                      'Dedicated success check-ins',
-                      'Tailored KPIs & training',
-                    ],
-                    cta: 'Request quote',
-                  },
-                ],
-              })
+          (slide.charts as any) || {
+            plans: [
+              {
+                name: 'Starter',
+                price: '$99',
+                period: 'mo',
+                features: ['Core features', 'Email support'],
+              },
+              {
+                name: 'Growth',
+                price: '$199',
+                period: 'mo',
+                features: ['Everything in Starter', 'Advanced automations'],
+                cta: 'Contact sales',
+              },
+            ],
+          }
         }
       />
     )
