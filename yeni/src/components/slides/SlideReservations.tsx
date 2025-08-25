@@ -26,18 +26,18 @@ export const SlideReservations = memo(function SlideReservations({ data, locale 
         caption={
           locale === 'tr'
             ? 'Önce vs sonra: ilk yanıt süresi (dakika)'
-            : 'Before vs. after: first response time (minutes)'
+            : 'Before vs after: first response time (minutes)'
         }
         beforeLabel={locale === 'tr' ? 'Önce' : 'Before'}
         afterLabel={locale === 'tr' ? 'Sonra' : 'After'}
       />
       <div className="card-surface p-5 flex flex-col items-start justify-center gap-1.5">
         <div className="text-xs text-porcelain/70">
-          {locale === 'tr' ? 'Daha fazla talep rezervasyona dönüyor' : 'More inquiries turning into bookings'}
+          {locale === 'tr' ? 'Daha fazla talep satışa/dönüşüme dönüyor' : 'More inquiries turning into conversions'}
         </div>
         <div className="text-3xl font-semibold text-mint">+{data.conversionUpliftPct}%</div>
         <div className="text-[11px] text-porcelain/60">
-          {locale === 'tr' ? 'Rezervasyona dönüşüm' : 'Conversion to booking'}
+          {locale === 'tr' ? 'Dönüşüm oranı' : 'Conversion rate'}
         </div>
       </div>
     </div>

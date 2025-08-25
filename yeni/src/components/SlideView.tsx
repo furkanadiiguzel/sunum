@@ -3,6 +3,9 @@ import { motion } from 'framer-motion'
 import type { Direction } from './SlideManager'
 import type { Slide } from '../content/slides'
 import { SlideContentRouter } from './SlideContentRouter'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore - handled by Vite
+import orwenBg from '../assets/orwen.png'
 
 type Props = {
   slide: Slide
@@ -34,64 +37,19 @@ export const SlideView = memo(function SlideView({ slide, reducedMotion, locale 
   return (
     <div className="absolute inset-0">
       <div className="absolute inset-0 overflow-hidden">
-        {slide.id === 'cover' ? (
-          <motion.img
-            src={slide.visual.src}
-            srcSet={slide.visual.srcSet}
-            sizes={slide.visual.sizes}
-            alt={slide.visual.alt}
-            className="h-full w-full object-cover will-change-transform"
-            initial={reducedMotion ? false : { scale: 1.06 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 12, ease: 'easeOut' }}
-          />
-        ) : (
-          <div className="h-full w-full bg-night" aria-hidden="true" />
-        )}
-        {slide.id === 'cover' ? (
-          <div
-            className="absolute inset-0 bg-black/65 md:bg-black/55 backdrop-blur-[2px] md:backdrop-blur-[6px]"
-            aria-hidden="true"
-          />
-        ) : null}
-        {/* Animated blobs for visible purple/green motion */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <motion.div
-            initial={{ x: -120, y: -140, scale: 1 }}
-            animate={{ x: 40, y: -60, scale: 1.06 }}
-            transition={{ duration: 18, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '60vmax',
-              height: '60vmax',
-              borderRadius: '50%',
-              filter: 'blur(48px)',
-              background: 'radial-gradient(circle at 50% 50%, rgba(108,92,231,0.35), rgba(108,92,231,0) 60%)',
-              zIndex: 5,
-            }}
-          />
-          <motion.div
-            initial={{ x: 120, y: 140, scale: 1 }}
-            animate={{ x: -40, y: 60, scale: 1.05 }}
-            transition={{ duration: 20, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              width: '60vmax',
-              height: '60vmax',
-              borderRadius: '50%',
-              filter: 'blur(48px)',
-              background: 'radial-gradient(circle at 50% 50%, rgba(34,211,238,0.28), rgba(34,211,238,0) 60%)',
-              zIndex: 5,
-            }}
-          />
-        </div>
+        <motion.img
+          src={orwenBg as unknown as string}
+          srcSet={orwenBg as unknown as string}
+          sizes={'(max-width: 768px) 100vw, 1200px'}
+          alt={'Orwen background'}
+          className="h-full w-full object-cover will-change-transform"
+          style={{ filter: 'blur(8px)' }}
+          initial={reducedMotion ? false : { scale: 1.06 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 12, ease: 'easeOut' }}
+        />
         {vignette}
         {particles}
-        <div className="absolute inset-0 bg-gradient-overlay pointer-events-none z-10" aria-hidden="true" />
       </div>
 
       <div className="relative z-10 h-full w-full">

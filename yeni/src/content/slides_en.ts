@@ -1,10 +1,8 @@
 import type { Slide } from './slides'
 
-const srcset = (url: string) => ({
-  src: `${url}?auto=format&fit=crop&w=1280&q=70`,
-  srcSet: `${url}?auto=format&fit=crop&w=480&q=60 480w, ${url}?auto=format&fit=crop&w=768&q=65 768w, ${url}?auto=format&fit=crop&w=1280&q=70 1280w, ${url}?auto=format&fit=crop&w=1920&q=75 1920w`,
-  sizes: '(max-width: 768px) 100vw, 1200px',
-})
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore - handled by Vite
+import orwenBg from '../assets/orwen.png'
 
 export const slidesEn: Slide[] = [
   {
@@ -16,8 +14,10 @@ export const slidesEn: Slide[] = [
       "This presentation demonstrates how Orwen's automation capabilities enhance service consistency, accelerate operations, and turn every interaction into an opportunity to impress.",
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
-      alt: 'Modern workspace with team collaborating.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -27,8 +27,10 @@ export const slidesEn: Slide[] = [
       "This is not cold, rigid automation. It’s a human-like AI that speaks naturally, understands tone, and adapts to each situation. It communicates in Turkish, English, and other languages you need. When empathy or discretion is required, it hands off to your team with a tidy summary and suggested next steps.",
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1521737604893-d14cc237f11d'),
-      alt: 'Calm system overview with connected steps.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -38,8 +40,10 @@ export const slidesEn: Slide[] = [
       'Automation runs repetitive tasks, notifications, approvals, and data transfers reliably on your behalf. The goal: fewer errors, more speed and consistency, and time back for your team to do creative work.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
-      alt: 'Modern workspace with teams collaborating.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     bullets: [
       'Automates repetitive tasks',
@@ -60,8 +64,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1553877522-43269d4ea984'),
-      alt: 'Efficiency and speed gains.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -78,8 +84,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1498050108023-c5249f4df085'),
-      alt: 'Service and module sets.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -95,8 +103,10 @@ export const slidesEn: Slide[] = [
       'Each automation creates a small, tangible win; together they make a big difference.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1518779578993-ec3579fee39f'),
-      alt: 'Flow examples.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -113,13 +123,15 @@ export const slidesEn: Slide[] = [
       'We proceed with clear timelines, measurable targets, and lean documentation.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1524666041070-9d87656c25bb'),
-      alt: 'Step-by-step progress.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
     id: 'reservations',
-    title: '1) Inquiries & Customer Messaging',
+    title: 'Inquiries & Customer Messaging',
     body:
       'Human-like replies that feel personal—late-night questions get warm, instant answers, and tricky cases reach your team with full context.',
     bullets: [
@@ -132,8 +144,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2'),
-      alt: 'Messaging panel with a customer conversation.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       responseBeforeMin: 12,
@@ -143,7 +157,7 @@ export const slidesEn: Slide[] = [
   },
   {
     id: 'operations-kpi',
-    title: '2) Onboarding / Offboarding & Operations Flow',
+    title: 'Onboarding / Offboarding & Operations Flow',
     body:
       'Customers receive polite, clear guidance; teams see short, human-readable tasks instead of cryptic codes.',
     bullets: [
@@ -156,8 +170,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1521737604893-d14cc237f11d'),
-      alt: 'Operations flow with tasks and readiness.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       roomReadyMinutesWeekly: [
@@ -171,7 +187,7 @@ export const slidesEn: Slide[] = [
   },
   {
     id: 'upsell',
-    title: '3) Customer Experience & Gentle Upselling',
+    title: 'Customer Experience & Gentle Upselling',
     body:
       'Suggests add‑ons the way a person would—relevant, polite, never pushy; if a customer says “not today,” it backs off gracefully.',
     bullets: [
@@ -182,8 +198,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1558222217-08ef9ac3a995'),
-      alt: 'Friendly upsell suggestions.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       topAddons: [
@@ -202,7 +220,7 @@ export const slidesEn: Slide[] = [
   },
   {
     id: 'reputation',
-    title: '4) Reputation & Feedback Management',
+    title: 'Reputation & Feedback Management',
     body:
       'Drafts sincere, empathetic replies that sound like you; flags sensitive cases for a human to finalize.',
     bullets: [
@@ -215,8 +233,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4'),
-      alt: 'Feedback dashboard with sentiment highlights.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       answeredWithin24Before: 54,
@@ -231,7 +251,7 @@ export const slidesEn: Slide[] = [
   },
   {
     id: 'report',
-    title: '5) Monthly Performance Report (Executive‑Friendly)',
+    title: 'Monthly Performance Report (Executive‑Friendly)',
     body:
       'Explains the “why,” not just the numbers—plain‑English insights your whole team can act on next month.',
     bullets: [
@@ -241,8 +261,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4'),
-      alt: 'Monthly report visuals.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       advanceDaysHeatmap: [
@@ -268,7 +290,7 @@ export const slidesEn: Slide[] = [
   },
   {
     id: 'marketing',
-    title: '6) Month‑by‑Month Marketing Plan & Campaign Rotation',
+    title: 'Month‑by‑Month Marketing Plan & Campaign Rotation',
     body:
       'Turns data into a one‑page, human‑readable action list—clear priorities, simple messages in each language.',
     bullets: [
@@ -279,8 +301,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4'),
-      alt: 'Marketing plan highlights.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       funnel: [
@@ -303,8 +327,10 @@ export const slidesEn: Slide[] = [
       'Guest: “Landing at 23:30—can I still check in?”\nAI: “Absolutely. Reception is open, and if you prefer, I can send quick door instructions now. Safe travels!”\n\nGuest: “It’s our anniversary.”\nAI: “Congratulations! Would you like a small surprise in the room? I can arrange a mini dessert plate or flowers.”',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2'),
-      alt: 'Natural AI conversation samples.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -321,8 +347,10 @@ export const slidesEn: Slide[] = [
       'All of this powered by a human-like AI concierge that communicates naturally, understands context, and knows when to involve a real person.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1519125323398-675f0ddb6308'),
-      alt: 'Positive momentum over first 90 days.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -337,8 +365,10 @@ export const slidesEn: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
-      alt: 'Simple pricing overview.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
 ]

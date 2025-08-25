@@ -14,7 +14,7 @@ type Props = {
 export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, locale = 'tr' }: Props) {
   const barData = [
     {
-      category: locale === 'tr' ? 'Resepsiyon işlemi (dk)' : 'Reception processing (min)',
+      category: locale === 'tr' ? 'Süreç işleme (dk)' : 'Process handling (min)',
       Before: data.receptionProcessing.before,
       After: data.receptionProcessing.after,
     },
@@ -26,8 +26,8 @@ export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, local
           data={data.roomReadyMinutesWeekly}
           caption={
             locale === 'tr'
-              ? 'Haftalık oda hazır olma süresi (dakika)'
-              : 'Average room-ready time (minutes) per week'
+              ? 'Haftalık ortalama çevrim süresi (dakika)'
+              : 'Average lead time (minutes) per week'
           }
           yDomain={[0, 'auto'] as any}
           unit=" min"
@@ -37,8 +37,8 @@ export const SlideOperationsKPI = memo(function SlideOperationsKPI({ data, local
           data={barData}
           caption={
             locale === 'tr'
-              ? 'Gelişe göre resepsiyon işlemi (önce vs sonra)'
-              : 'Reception processing per arrival (before vs after)'
+              ? 'Vaka başına süreç işleme (önce vs sonra)'
+              : 'Process handling per case (before vs after)'
           }
           beforeLabel={locale === 'tr' ? 'Önce' : 'Before'}
           afterLabel={locale === 'tr' ? 'Sonra' : 'After'}

@@ -20,28 +20,22 @@ export type Slide = {
 // Local assets
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore - handled by Vite
-import hotelBg from '../assets/hotel.jpg'
-
-const srcset = (url: string) => ({
-  src: `${url}?auto=format&fit=crop&w=1280&q=70`,
-  srcSet: `${url}?auto=format&fit=crop&w=480&q=60 480w, ${url}?auto=format&fit=crop&w=768&q=65 768w, ${url}?auto=format&fit=crop&w=1280&q=70 1280w, ${url}?auto=format&fit=crop&w=1920&q=75 1920w`,
-  sizes: '(max-width: 768px) 100vw, 1200px',
-})
+import orwenBg from '../assets/orwen.png'
 
 export const slides: Slide[] = [
   {
     id: 'cover',
-    title: 'Orwen — AI-Powered Solutions for Businesses',
+    title: 'Orwen — İşletmeler için Yapay Zekâ Destekli Çözümler',
     lead:
-      'Orwen is the operational layer that simplifies how modern businesses function. It automates routine tasks and provides innovative solutions, allowing teams to focus on creating value. With AI that understands context and communicates naturally, Orwen transforms operations into seamless, efficient processes.',
+      'Orwen, modern işletmelerin işleyişini sadeleştiren operasyonel katmandır. Rutin işleri otomatikleştirir ve yenilikçi çözümler sunar; ekiplerin değere odaklanmasını sağlar. Bağlamı anlayan ve doğal iletişim kuran yapay zekâ ile operasyonları pürüzsüz, verimli bir akışa dönüştürür.',
     body:
-      'This presentation demonstrates how Orwen\'s automation capabilities enhance service consistency, accelerate operations, and turn every interaction into an opportunity to impress.',
+      'Bu sunum, Orwen\'in otomasyon yeteneklerinin hizmet tutarlılığını nasıl artırdığını, operasyonları nasıl hızlandırdığını ve her etkileşimi etkileme fırsatına nasıl çevirdiğini gösterir.',
     visual: {
       type: 'image',
-      src: hotelBg as unknown as string,
-      srcSet: hotelBg as unknown as string,
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
       sizes: '(max-width: 768px) 100vw, 1200px',
-      alt: 'Pamje nate e një hoteli me pishinë të ndriçuar.',
+      alt: 'Orwen arka planı',
     },
   },
   {
@@ -51,8 +45,10 @@ export const slides: Slide[] = [
       "Bu soğuk, katı bir otomasyon değil. Kullanıcılarla günlük dilde konuşan, tonu (acil vs. rahat) anlayan ve her duruma uyum sağlayan insan benzeri bir AI'dir. Türkçe, İngilizce ve istediğiniz herhangi bir dilde doğal bir şekilde iletişim kurabilir. Empati veya gizlilik gerektiğinde, ekibinize düzenli bir özet ve önerilen sonraki adımlarla iletir. Pratikte, daha hızlı yanıtlar, daha sorunsuz operasyonlar, daha net planlar, daha hızlı yanıtlar ve aylık raporlar ve basit, ay ay eylemler göreceksiniz.",
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1521737604893-d14cc237f11d'),
-      alt: 'Bağlantılı adımlarla sakin sistem genel görünümü.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -62,8 +58,10 @@ export const slides: Slide[] = [
       'Otomasyon; tekrarlı işleri, bildirimleri, onay akışlarını ve veri aktarımını insanların yerine güvenilir şekilde yürüten akıllı süreçlerdir. Amaç: hatayı azaltmak, hız ve tutarlılığı artırmak, ekibin zamanını yaratıcı işe geri kazandırmak.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
-      alt: 'Ekiplerin birlikte çalıştığı modern işyeri.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     bullets: [
       'Tekrarlayan görevleri otomatikleştirir',
@@ -84,8 +82,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1553877522-43269d4ea984'),
-      alt: 'Verimlilik ve hız artışı.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -102,8 +102,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1498050108023-c5249f4df085'),
-      alt: 'Hizmet ve modül setleri.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -119,8 +121,10 @@ export const slides: Slide[] = [
       'Her otomasyon küçük ama somut bir kazanım üretir; birlikte büyük fark yaratırlar.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1518779578993-ec3579fee39f'),
-      alt: 'Akış örnekleri.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -137,13 +141,15 @@ export const slides: Slide[] = [
       'Net zaman çizelgesi, ölçülebilir hedefler ve sade dokümantasyonla ilerleriz.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1524666041070-9d87656c25bb'),
-      alt: 'Adım adım ilerleme.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
     id: 'reservations',
-    title: '1) Talepler ve Müşteri Mesajlaşması',
+    title: 'Talepler ve Müşteri Mesajlaşması',
     body:
       'Kişisel hissettiren insan benzeri yanıtlar—gece geç sorulara sıcak, anlık cevap; hassas konular ekipten birine tam özetle aktarılır.',
     bullets: [
@@ -156,8 +162,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2'),
-      alt: 'Müşteri sohbet ekranı.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       responseBeforeMin: 12,
@@ -167,7 +175,7 @@ export const slides: Slide[] = [
   },
   {
     id: 'operations-kpi',
-    title: '2) Başlatma / Kapatma ve Operasyon Akışı',
+    title: 'Başlatma / Kapatma ve Operasyon Akışı',
     body:
       'Müşteriler net ve kibar yönlendirme alır; ekipler karmaşık kodlar yerine kısa, okunur görevler görür.',
     bullets: [
@@ -180,8 +188,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1521737604893-d14cc237f11d'),
-      alt: 'Görev ve hazırlık akışı.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       roomReadyMinutesWeekly: [
@@ -195,7 +205,7 @@ export const slides: Slide[] = [
   },
   {
     id: 'upsell',
-    title: '3) Müşteri Deneyimi ve Yumuşak Ek Satış',
+    title: 'Müşteri Deneyimi ve Yumuşak Ek Satış',
     body:
       'Bir insan gibi ek teklifler sunar—ilgili, kibar, asla baskıcı değildir; “bugün değil” dendiğinde zarifçe çekilir.',
     bullets: [
@@ -206,8 +216,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1558222217-08ef9ac3a995'),
-      alt: 'Dostça ek satış önerileri.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       topAddons: [
@@ -226,7 +238,7 @@ export const slides: Slide[] = [
   },
   {
     id: 'reputation',
-    title: '4) İtibar ve Geri Bildirim Yönetimi',
+    title: 'İtibar ve Geri Bildirim Yönetimi',
     body:
       'Sizin dilinizde samimi ve empatik taslak yanıtlar hazırlar; hassas durumları bir insana devreder.',
     bullets: [
@@ -239,8 +251,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4'),
-      alt: 'Duygu vurgulu geri bildirim panosu.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       answeredWithin24Before: 54,
@@ -255,7 +269,7 @@ export const slides: Slide[] = [
   },
   {
     id: 'report',
-    title: '5) Aylık Performans Raporu (Yönetici Dostu)',
+    title: 'Aylık Performans Raporu (Yönetici Dostu)',
     body:
       'Sadece rakamlar değil, “neden”i açıklar—tüm ekibin bir sonraki ay uygulayabileceği sade içgörüler.',
     bullets: [
@@ -265,8 +279,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4'),
-      alt: 'Aylık rapor görselleri.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       advanceDaysHeatmap: [
@@ -292,7 +308,7 @@ export const slides: Slide[] = [
   },
   {
     id: 'marketing',
-    title: '6) Aylık Pazarlama Planı ve Kampanya Rotasyonu',
+    title: 'Aylık Pazarlama Planı ve Kampanya Rotasyonu',
     body:
       'Veriyi tek sayfalık, okunur bir eylem listesine çevirir—açık öncelikler, her dilde basit mesajlar.',
     bullets: [
@@ -303,8 +319,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4'),
-      alt: 'Pazarlama planı öne çıkanlar.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
     charts: {
       funnel: [
@@ -327,8 +345,10 @@ export const slides: Slide[] = [
       'Misafir: “23:30’da geliyoruz—hala check-in yapabilir miyiz?”\nAI: “Tabii ki. Resepsiyon açık; isterseniz kapı talimatlarını şimdi gönderebilirim. İyi yolculuklar!”\n\nMisafir: “Yıldönümümüz.”\nAI: “Tebrikler! Odanızda küçük bir sürpriz ister misiniz? Tatlı tabağı veya çiçekler ayarlayabilirim.”',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2'),
-      alt: 'Doğal AI konuşma örnekleri.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -345,8 +365,10 @@ export const slides: Slide[] = [
       'Tüm bunlar, doğal bir şekilde iletişim kuran, bağlamı anlayan ve gerçek bir kişiyi dahil etmesi gerektiğinde bilen insan benzeri bir AI concierge tarafından desteklenmektedir.',
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1519125323398-675f0ddb6308'),
-      alt: 'İlk 90 gün boyunca olumlu ivme.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
   {
@@ -361,8 +383,10 @@ export const slides: Slide[] = [
     ],
     visual: {
       type: 'image',
-      ...srcset('https://images.unsplash.com/photo-1522071820081-009f0129c71c'),
-      alt: 'Basit fiyatlandırma genel görünümü.',
+      src: orwenBg as unknown as string,
+      srcSet: orwenBg as unknown as string,
+      sizes: '(max-width: 768px) 100vw, 1200px',
+      alt: 'Orwen background',
     },
   },
 ]

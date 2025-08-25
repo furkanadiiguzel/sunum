@@ -5,36 +5,36 @@ type Message = { id: string; from: 'guest' | 'ai'; text: string }
 type Props = { locale?: 'tr' | 'en' }
 
 const MESSAGES_TR: Message[] = [
-  { id: 'm1', from: 'guest', text: '23:30’da geliyoruz—hala check-in yapabilir miyiz?' },
+  { id: 'm1', from: 'guest', text: 'Yarın 18:30 için randevu alabilir miyiz?' },
   {
     id: 'm2',
     from: 'ai',
     text:
-      'Tabii ki. Resepsiyon açık; isterseniz kapı talimatlarını şimdi gönderebilirim. İyi yolculuklar!',
+      'Elbette. Uygunuz: 18:30 ve 19:00. Tercihinizi yazarsanız onayı hemen paylaşırım.',
   },
-  { id: 'm3', from: 'guest', text: 'Yıldönümümüz.' },
+  { id: 'm3', from: 'guest', text: '18:30 olsun. Bir de hızlı kurulum mümkün mü?' },
   {
     id: 'm4',
     from: 'ai',
     text:
-      'Tebrikler! Odanızda küçük bir sürpriz ister misiniz? Tatlı tabağı veya çiçekler ayarlayabilirim.',
+      'Tamamdır, 18:30 rezerve edildi. Hızlı kurulum için ekip notunu ekledim; ortalama 10‑15 dk sürer.',
   },
 ]
 
 const MESSAGES_EN: Message[] = [
-  { id: 'm1', from: 'guest', text: 'Landing at 23:30—can I still check in?' },
+  { id: 'm1', from: 'guest', text: 'Can we schedule for tomorrow at 6:30 PM?' },
   {
     id: 'm2',
     from: 'ai',
     text:
-      'Absolutely. Reception is open; if you like, I can send quick door instructions now. Safe travels!',
+      'Absolutely. Available slots: 6:30 PM and 7:00 PM. Tell me which you prefer and I’ll confirm right away.',
   },
-  { id: 'm3', from: 'guest', text: "It's our anniversary." },
+  { id: 'm3', from: 'guest', text: '6:30 PM works. Also, can we get an express setup?' },
   {
     id: 'm4',
     from: 'ai',
     text:
-      'Congratulations! Would you like a small surprise in the room? I can arrange a mini dessert plate or flowers.',
+      'All set for 6:30 PM. I added a note for express setup; it typically takes 10–15 minutes.',
   },
 ]
 

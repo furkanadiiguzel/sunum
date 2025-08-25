@@ -11,6 +11,8 @@ import { SlideMarketing } from './slides/SlideMarketing'
 import { PhoneConversation } from './illustrations/PhoneConversation'
 import { SlideClosingCards } from './slides/SlideClosingCards'
 import { SlidePricing } from './slides/SlidePricing'
+import { SlideServicesCards } from './slides/SlideServicesCards'
+import { SlideExamples } from './slides/SlideExamples'
 import type { Slide } from '../content/slides'
 
 type Props = { slide: Slide; locale?: 'tr' | 'en' }
@@ -151,6 +153,8 @@ export function SlideContentRouter({ slide, locale = 'tr' }: Props) {
     )
   if (slide.id === 'team') return <Toasts />
   if (slide.id === 'metrics' && slide.charts) return <SlideMetrics data={slide.charts as any} locale={locale} />
+  if (slide.id === 'services-overview') return <SlideServicesCards items={slide.bullets ?? []} />
+  if (slide.id === 'solutions-examples') return <SlideExamples items={slide.bullets ?? []} />
   return null
 }
 
