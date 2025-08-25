@@ -1,24 +1,32 @@
 import { memo } from 'react'
+import { motion } from 'framer-motion'
 
-const Dot = () => <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-mint" />
+const Bullet = () => <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-mint" />
 
 type Props = { items: string[] }
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.3, delay: i * 0.05 } }),
+}
+
 export const SlideExamples = memo(function SlideExamples({ items }: Props) {
   return (
-    <div className="grid grid-cols-1 gap-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
       {items.map((text, i) => (
-        <div key={i} className="card-surface p-4">
+        <motion.div
+          key={i}
+          className="card-surface p-4"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          custom={i}
+        >
           <div className="flex items-start gap-3">
-            <Dot />
+            <Bullet />
             <p className="text-sm text-porcelain/90 leading-5">{text}</p>
           </div>
-          <div className="mt-3">
-            <div className="h-[90px] w-full rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-xs text-porcelain/60">
-              Görsel/Şema alanı
-            </div>
-          </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   )
