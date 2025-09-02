@@ -166,7 +166,7 @@ export function SlideContentRouter({ slide, locale = 'sq' }: Props) {
                     price: 'Për shërbim',
                     features: [
                       'Zgjidhni çdo aftësi të vetme (fushë & SLA e qartë)',
-                      'E shkëlqyer për të provuar IgnitOS në një fushë',
+                      'E shkëlqyer për të provuar Orwen në një fushë',
                       'Pa angazhim afatgjatë',
                     ],
                     cta: 'Kërko ofertë',
@@ -200,7 +200,7 @@ export function SlideContentRouter({ slide, locale = 'sq' }: Props) {
                     price: 'Per service',
                     features: [
                       'Pick any single capability (clear scope & SLA)',
-                      'Great for trying IgnitOS in one area',
+                      'Great for trying Orwen in one area',
                       'No long-term commitment',
                     ],
                     cta: 'Request quote',

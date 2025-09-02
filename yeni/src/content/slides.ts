@@ -31,9 +31,9 @@ const srcset = (url: string) => ({
 export const slides: Slide[] = [
   {
     id: 'cover',
-    title: 'IgnitOS — Zgjidhje të Fuqizuara nga AI për Biznese',
+    title: 'Orwen — Zgjidhje të Fuqizuara nga AI për Biznese',
     lead:
-      'IgnitOS është shtresa operative që e thjeshton mënyrën si funksionojnë bizneset moderne. Nga kontakti i parë te ndjekja e fundit, bashkon çdo hap kritik në një rrjedhë koherente—që ekipet të kalojnë më pak kohë duke ndjekur punët dhe më shumë duke krijuar vlerë. Me AI me sjellje njerëzore që kupton kontekstin dhe komunikon natyrshëm, IgnitOS i kthen detyrat rutinë në ekzekutim të lehtë dhe të qëndrueshëm.',
+      'Orwen është shtresa operative që e thjeshton mënyrën si funksionojnë bizneset moderne. Nga kontakti i parë te ndjekja e fundit, bashkon çdo hap kritik në një rrjedhë koherente—që ekipet të kalojnë më pak kohë duke ndjekur punët dhe më shumë duke krijuar vlerë. Me AI me sjellje njerëzore që kupton kontekstin dhe komunikon natyrshëm, Orwen i kthen detyrat rutinë në ekzekutim të lehtë dhe të qëndrueshëm.',
     body:
       'Kjo prezantim tregon si një sistem i vetëm, i orkestruar mirë, rrit qëndrueshmërinë e shërbimit, përshpejton operacionet dhe e kthen çdo ndërveprim—shitje, mbështetje ose shpërndarje—në një mundësi për të lënë përshtypje.',
     visual: {

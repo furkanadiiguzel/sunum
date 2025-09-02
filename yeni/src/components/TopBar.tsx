@@ -12,7 +12,7 @@ export function TopBar({ index, total, onOpenAtlas, locale, onToggleLocale }: Pr
       <div className="pointer-events-auto select-none font-display text-porcelain/90">
         <span className="inline-flex items-center gap-2">
           <span className="inline-block h-2 w-2 rounded-full bg-mint shadow-[0_0_12px_rgba(16,185,129,.7)]" />
-          IgnitOS
+          Orwen
         </span>
       </div>
       <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2">

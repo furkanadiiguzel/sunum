@@ -9,9 +9,9 @@ const srcset = (url: string) => ({
 export const slidesEn: Slide[] = [
   {
     id: 'cover',
-    title: 'IgnitOS — AI-Powered Business Solutions',
+    title: 'Orwen — AI-Powered Business Solutions',
     lead:
-      'IgnitOS is the operating layer that simplifies how modern businesses run. From the first touch to the final follow-up, it brings every critical step into one coherent flow—so teams spend less time chasing work and more time creating value. Powered by human-like AI that understands context and communicates naturally, IgnitOS turns routine tasks into effortless, consistent execution.',
+      'Orwen is the operating layer that simplifies how modern businesses run. From the first touch to the final follow-up, it brings every critical step into one coherent flow—so teams spend less time chasing work and more time creating value. Powered by human-like AI that understands context and communicates naturally, Orwen turns routine tasks into effortless, consistent execution.',
     body:
       'This presentation shows how a single, well-orchestrated system raises service consistency, accelerates operations, and turns every interaction—sales, support, or delivery—into an opportunity to impress.',
     visual: {
